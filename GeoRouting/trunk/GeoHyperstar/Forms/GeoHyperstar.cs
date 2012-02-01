@@ -1478,7 +1478,83 @@ namespace GeoHyperstar.Forms
         /// <param name="e"></param>
         private void Start2_btn_Click(object sender, EventArgs e)
         {
+            //times of simulation
+            int expSPs = (int)RunTimes2_nud.Value;
 
+            //number of experimental OD pairs
+            int expODs = (int)RandOD2_nud.Value;
+
+            //the max value of progressbar
+            SPSim_progressBar.Maximum = expODs*expSPs;
+
+            int SPiteration = 0;
+            int ODiteration = 0;
+            int includeAll = 0;//indicates all links of SP are included in Hyperpath
+            while (ODiteration < expODs)
+            {
+                SPiteration = 0;
+                includeAll = 0;
+                //the random seed to generate random OD pairs
+                Random rand = new Random(DateTime.Now.Millisecond);
+                int o = -1;
+                int d = -1;
+                while (o == d)
+                {
+                    o = rand.Next(CurrentNet.AllNodes.Count);
+                    d = rand.Next(CurrentNet.AllNodes.Count);
+                }
+                long time = -1;//we actually don't care about the time here
+                
+                //get the hyperpath for the current test OD pair
+                List<Link> RawHyperpath = new List<Link>();
+                FDHS(CurrentNet, o, d, ref RawHyperpath, out time, out time);
+                
+                List<Link> Hyperpath = GetHyperpath(RawHyperpath);
+                List<int> HP=new List<int>();
+                foreach (Link x in Hyperpath)
+                {
+                    HP.Add(x.ID); 
+                }
+                //the random seed to generate network travel time changes
+                Random rand2 = new Random(DateTime.Now.Millisecond);
+                bool Accessible = false;
+                int includedlink = 0;
+                int SPLinkCount=0;
+                while (SPiteration<expSPs)
+                {
+                    includedlink = 0;
+                    //simulate the network travel time changes here.
+                    foreach (Link i in CurrentNet.AllLinks)
+                    {
+                        //realtime T = undelayed T + R[0,1]* delay
+                        i.TravelTime_variable = i.TravelTime_Fixed + /*da*/ (1 / i.Fa) * rand.NextDouble();
+                    }
+                    //calculate the realtime shortest path
+                    FibDijkstra(CurrentNet, o, d, true, out time);
+                    List<int> SP = GetShortestPath(CurrentNet, o, d, true, out Accessible);
+                    
+                    //Judge the inclusion of SP in Hyperpath
+                    bool exception=false;
+                    
+                    foreach (int i in SP)
+                    {
+                        if (HP.Contains(i))
+                            includedlink++;
+                        else
+                            exception = true;
+                    }
+                    if (!exception) includeAll++;
+                    SPiteration++;
+                    SPLinkCount=SP.Count;
+                    Console.WriteLine("Experimental OD:{0}->{1}, {2}, LinkInclusionRatio: {3}, iter:{4}", o, d, Accessible, (double)includedlink / SPLinkCount,SPiteration);
+                    Dijkstra_Recover(CurrentNet);
+                }
+                
+                ODiteration++;
+                List<Link> temp = new List<Link>();
+                DHS_Recover(CurrentNet, temp);
+            }
+            
         }
     }
 

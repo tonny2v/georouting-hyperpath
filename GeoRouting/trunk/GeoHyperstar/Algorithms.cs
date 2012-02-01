@@ -308,8 +308,8 @@ namespace GeoHyperstar.Forms
         /// </summary>
         /// <param name="o">起点</param>
         /// <param name="d">终点</param>
-        /// <param name="TimeSpan_SP">最短路算法消耗的时间</param>
-        /// <param name="TimeSpan_DHS">算法消耗的总时间</param>
+        /// <param name="prior">true if Optimistic heuristic is used, false if Pessimistic heuristic is used</param>
+        /// <param name="TimeSpan">最短路算法消耗的时间</param>
         /// <returns></returns>
 
         bool FibDijkstra(Network WorkingNet, int o, int d, bool prior, out long TimeSpan)//这里directed为最短路计算时是否考虑道路方向的参数,piror为ture代表optimistic，false为pessimistic
