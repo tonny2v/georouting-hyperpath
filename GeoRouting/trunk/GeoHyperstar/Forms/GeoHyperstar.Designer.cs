@@ -97,12 +97,12 @@
             this.label9 = new System.Windows.Forms.Label();
             this.AlgName_cb = new System.Windows.Forms.ComboBox();
             this.SPSim_tp = new System.Windows.Forms.TabPage();
-            this.progressBar2 = new System.Windows.Forms.ProgressBar();
+            this.Start2_btn = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.RunTimes2_nud = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.RandOD2_nud = new System.Windows.Forms.NumericUpDown();
-            this.Start2_btn = new System.Windows.Forms.Button();
+            this.SPSim_progressBar = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.Origin_nud)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Destination_nud)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -921,7 +921,7 @@
             this.SPSim_tp.Controls.Add(this.RunTimes2_nud);
             this.SPSim_tp.Controls.Add(this.label13);
             this.SPSim_tp.Controls.Add(this.RandOD2_nud);
-            this.SPSim_tp.Controls.Add(this.progressBar2);
+            this.SPSim_tp.Controls.Add(this.SPSim_progressBar);
             this.SPSim_tp.Location = new System.Drawing.Point(4, 22);
             this.SPSim_tp.Name = "SPSim_tp";
             this.SPSim_tp.Padding = new System.Windows.Forms.Padding(3);
@@ -930,12 +930,15 @@
             this.SPSim_tp.Text = "SP_Simulation";
             this.SPSim_tp.UseVisualStyleBackColor = true;
             // 
-            // progressBar2
+            // Start2_btn
             // 
-            this.progressBar2.Location = new System.Drawing.Point(38, 171);
-            this.progressBar2.Name = "progressBar2";
-            this.progressBar2.Size = new System.Drawing.Size(380, 23);
-            this.progressBar2.TabIndex = 0;
+            this.Start2_btn.Location = new System.Drawing.Point(233, 127);
+            this.Start2_btn.Name = "Start2_btn";
+            this.Start2_btn.Size = new System.Drawing.Size(75, 23);
+            this.Start2_btn.TabIndex = 13;
+            this.Start2_btn.Text = "Start";
+            this.Start2_btn.UseVisualStyleBackColor = true;
+            this.Start2_btn.Click += new System.EventHandler(this.Start2_btn_Click);
             // 
             // label12
             // 
@@ -979,15 +982,12 @@
             0,
             0});
             // 
-            // Start2_btn
+            // SPSim_progressBar
             // 
-            this.Start2_btn.Location = new System.Drawing.Point(233, 127);
-            this.Start2_btn.Name = "Start2_btn";
-            this.Start2_btn.Size = new System.Drawing.Size(75, 23);
-            this.Start2_btn.TabIndex = 13;
-            this.Start2_btn.Text = "Start";
-            this.Start2_btn.UseVisualStyleBackColor = true;
-            this.Start2_btn.Click += new System.EventHandler(this.Start2_btn_Click);
+            this.SPSim_progressBar.Location = new System.Drawing.Point(38, 171);
+            this.SPSim_progressBar.Name = "SPSim_progressBar";
+            this.SPSim_progressBar.Size = new System.Drawing.Size(380, 23);
+            this.SPSim_progressBar.TabIndex = 0;
             // 
             // GeoHyperStar_MainForm
             // 
@@ -1118,7 +1118,7 @@
         private System.Windows.Forms.NumericUpDown RunTimes2_nud;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown RandOD2_nud;
-        private System.Windows.Forms.ProgressBar progressBar2;
+        private System.Windows.Forms.ProgressBar SPSim_progressBar;
     }
 }
 
