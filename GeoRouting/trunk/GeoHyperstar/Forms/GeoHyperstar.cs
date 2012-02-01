@@ -1553,7 +1553,8 @@ namespace GeoHyperstar.Forms
                 List<Link> temp = new List<Link>();
                 DHS_Recover(CurrentNet, temp);
             }
-            
+            Process proc = Process.Start(@"..\..\test.py");
+            proc.WaitForExit();
         }
     }
 
