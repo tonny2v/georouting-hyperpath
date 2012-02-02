@@ -1485,6 +1485,7 @@ namespace GeoHyperstar.Forms
             int expODs = (int)RandOD2_nud.Value;
 
             //the max value of progressbar
+            SPSim_progressBar.Value = 0;
             SPSim_progressBar.Maximum = expODs*expSPs;
 
             int SPiteration = 0;
@@ -1546,15 +1547,30 @@ namespace GeoHyperstar.Forms
                     if (!exception) includeAll++;
                     SPiteration++;
                     SPLinkCount=SP.Count;
-                    Console.WriteLine("Experimental OD:{0}->{1}, {2}, LinkInclusionRatio: {3}, iter:{4}", o, d, Accessible, (double)includedlink / SPLinkCount,SPiteration);
+                    if (Accessible)
+                    {
+                        using (StreamWriter sw = new StreamWriter(@"..\..\data"+ ODiteration.ToString()+".csv",true))
+                        {
+                            sw.WriteLine("{0}->{1}, {2}, {3}, {4}", o, d, Accessible, (double)includedlink / SPLinkCount, SPiteration);
+                        }
+                        Console.WriteLine("Experimental OD:{0}->{1}, {2}, LinkInclusionRatio: {3}, iter:{4}", o, d, Accessible, (double)includedlink / SPLinkCount, SPiteration);
+                    }
+                    else SPiteration--;
+                    SPSim_progressBar.Value = ODiteration * SPiteration;
                     Dijkstra_Recover(CurrentNet);
                 }
                 ODiteration++;
                 List<Link> temp = new List<Link>();
                 DHS_Recover(CurrentNet, temp);
             }
-            Process proc = Process.Start(@"..\..\test.py");
+            Process proc = Process.Start(@"..\..\PlotSPSim.py");
             proc.WaitForExit();
+        }
+
+        private void PassOD_btn_Click(object sender, EventArgs e)
+        {
+            HyperFrom_nud.Value = Origin_nud.Value;
+            HyperTo_nud.Value = Destination_nud.Value;
         }
     }
 
