@@ -39,6 +39,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Export_btn = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.PassOD_btn = new System.Windows.Forms.Button();
             this.DHS_btn = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.SingleRunOption_group = new System.Windows.Forms.GroupBox();
@@ -97,6 +98,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.AlgName_cb = new System.Windows.Forms.ComboBox();
             this.SPSim_tp = new System.Windows.Forms.TabPage();
+            this.SP_Sim_Plot_btn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Start2_btn = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
@@ -104,7 +106,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.RandOD2_nud = new System.Windows.Forms.NumericUpDown();
             this.SPSim_progressBar = new System.Windows.Forms.ProgressBar();
-            this.PassOD_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Origin_nud)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Destination_nud)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -259,6 +260,16 @@
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dijkstra Shortest path";
+            // 
+            // PassOD_btn
+            // 
+            this.PassOD_btn.Location = new System.Drawing.Point(275, 23);
+            this.PassOD_btn.Name = "PassOD_btn";
+            this.PassOD_btn.Size = new System.Drawing.Size(63, 23);
+            this.PassOD_btn.TabIndex = 8;
+            this.PassOD_btn.Text = "Pass OD";
+            this.PassOD_btn.UseVisualStyleBackColor = true;
+            this.PassOD_btn.Click += new System.EventHandler(this.PassOD_btn_Click);
             // 
             // DHS_btn
             // 
@@ -920,6 +931,7 @@
             // 
             // SPSim_tp
             // 
+            this.SPSim_tp.Controls.Add(this.SP_Sim_Plot_btn);
             this.SPSim_tp.Controls.Add(this.pictureBox1);
             this.SPSim_tp.Controls.Add(this.Start2_btn);
             this.SPSim_tp.Controls.Add(this.label12);
@@ -934,6 +946,16 @@
             this.SPSim_tp.TabIndex = 2;
             this.SPSim_tp.Text = "SP_Simulation";
             this.SPSim_tp.UseVisualStyleBackColor = true;
+            // 
+            // SP_Sim_Plot_btn
+            // 
+            this.SP_Sim_Plot_btn.Location = new System.Drawing.Point(295, 47);
+            this.SP_Sim_Plot_btn.Name = "SP_Sim_Plot_btn";
+            this.SP_Sim_Plot_btn.Size = new System.Drawing.Size(75, 23);
+            this.SP_Sim_Plot_btn.TabIndex = 15;
+            this.SP_Sim_Plot_btn.Text = "Plot";
+            this.SP_Sim_Plot_btn.UseVisualStyleBackColor = true;
+            this.SP_Sim_Plot_btn.Click += new System.EventHandler(this.SP_Sim_Plot_btn_Click);
             // 
             // pictureBox1
             // 
@@ -1006,16 +1028,6 @@
             this.SPSim_progressBar.Name = "SPSim_progressBar";
             this.SPSim_progressBar.Size = new System.Drawing.Size(720, 23);
             this.SPSim_progressBar.TabIndex = 0;
-            // 
-            // PassOD_btn
-            // 
-            this.PassOD_btn.Location = new System.Drawing.Point(275, 23);
-            this.PassOD_btn.Name = "PassOD_btn";
-            this.PassOD_btn.Size = new System.Drawing.Size(63, 23);
-            this.PassOD_btn.TabIndex = 8;
-            this.PassOD_btn.Text = "Pass OD";
-            this.PassOD_btn.UseVisualStyleBackColor = true;
-            this.PassOD_btn.Click += new System.EventHandler(this.PassOD_btn_Click);
             // 
             // GeoHyperStar_MainForm
             // 
@@ -1150,6 +1162,7 @@
         private System.Windows.Forms.ProgressBar SPSim_progressBar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button PassOD_btn;
+        private System.Windows.Forms.Button SP_Sim_Plot_btn;
     }
 }
 

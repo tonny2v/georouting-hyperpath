@@ -1,11 +1,11 @@
-from matplotlib import pylab
+﻿from matplotlib import pylab
 import numpy as np
 from matplotlib import rcParams
 rcParams['font.family']='Times New Roman'
 rcParams['lines.linewidth']=2
 dtype=[('',np.double)]*10
 
-with open('data.csv') as f:
+with open('..\..\data.csv') as f:
     y=np.loadtxt(f,delimiter=',',dtype=dtype)
 
 y=y.view(np.dtype([('data',np.double,10)]))
@@ -28,4 +28,5 @@ for tick,label in zip(range(10),ax1.get_xticklabels()):
    k = tick % 2
    ax1.text(pos[tick], 1.1-(1.1*0.05), upperLabels[tick],
         horizontalalignment='center', size=10)
-pylab.show()
+#pylab.show()
+pylab.savefig('fig.png')

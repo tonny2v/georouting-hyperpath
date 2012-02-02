@@ -25,6 +25,7 @@ using Npgsql;
 using SharpMapUITest;
 using NetworkLib.Element;
 using WinChart;
+using System.Drawing;
 
 namespace GeoHyperstar.Forms
 {
@@ -1563,14 +1564,20 @@ namespace GeoHyperstar.Forms
                 List<Link> temp = new List<Link>();
                 DHS_Recover(CurrentNet, temp);
             }
-            Process proc = Process.Start(@"..\..\PlotSPSim.py");
-            proc.WaitForExit();
+            
         }
 
         private void PassOD_btn_Click(object sender, EventArgs e)
         {
             HyperFrom_nud.Value = Origin_nud.Value;
             HyperTo_nud.Value = Destination_nud.Value;
+        }
+
+        private void SP_Sim_Plot_btn_Click(object sender, EventArgs e)
+        {
+            Process proc = Process.Start(@"..\..\PlotSPSim.py");
+            proc.WaitForExit();
+            pictureBox1.Image=Image.FromFile(@"fig.png");
         }
     }
 
