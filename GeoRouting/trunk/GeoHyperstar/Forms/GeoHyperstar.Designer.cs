@@ -97,12 +97,14 @@
             this.label9 = new System.Windows.Forms.Label();
             this.AlgName_cb = new System.Windows.Forms.ComboBox();
             this.SPSim_tp = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Start2_btn = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.RunTimes2_nud = new System.Windows.Forms.NumericUpDown();
             this.label13 = new System.Windows.Forms.Label();
             this.RandOD2_nud = new System.Windows.Forms.NumericUpDown();
             this.SPSim_progressBar = new System.Windows.Forms.ProgressBar();
+            this.PassOD_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Origin_nud)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Destination_nud)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -123,6 +125,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.RunTimes_nud)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RandOD_nud)).BeginInit();
             this.SPSim_tp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RunTimes2_nud)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RandOD2_nud)).BeginInit();
             this.SuspendLayout();
@@ -244,6 +247,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.PassOD_btn);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.Destination_nud);
@@ -916,6 +920,7 @@
             // 
             // SPSim_tp
             // 
+            this.SPSim_tp.Controls.Add(this.pictureBox1);
             this.SPSim_tp.Controls.Add(this.Start2_btn);
             this.SPSim_tp.Controls.Add(this.label12);
             this.SPSim_tp.Controls.Add(this.RunTimes2_nud);
@@ -930,9 +935,17 @@
             this.SPSim_tp.Text = "SP_Simulation";
             this.SPSim_tp.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(20, 120);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(719, 311);
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
             // Start2_btn
             // 
-            this.Start2_btn.Location = new System.Drawing.Point(233, 127);
+            this.Start2_btn.Location = new System.Drawing.Point(214, 47);
             this.Start2_btn.Name = "Start2_btn";
             this.Start2_btn.Size = new System.Drawing.Size(75, 23);
             this.Start2_btn.TabIndex = 13;
@@ -943,7 +956,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(36, 132);
+            this.label12.Location = new System.Drawing.Point(17, 52);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(58, 13);
             this.label12.TabIndex = 12;
@@ -951,7 +964,12 @@
             // 
             // RunTimes2_nud
             // 
-            this.RunTimes2_nud.Location = new System.Drawing.Point(95, 130);
+            this.RunTimes2_nud.Location = new System.Drawing.Point(76, 50);
+            this.RunTimes2_nud.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.RunTimes2_nud.Name = "RunTimes2_nud";
             this.RunTimes2_nud.Size = new System.Drawing.Size(120, 20);
             this.RunTimes2_nud.TabIndex = 11;
@@ -964,7 +982,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(35, 109);
+            this.label13.Location = new System.Drawing.Point(16, 27);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(52, 13);
             this.label13.TabIndex = 10;
@@ -972,7 +990,7 @@
             // 
             // RandOD2_nud
             // 
-            this.RandOD2_nud.Location = new System.Drawing.Point(94, 107);
+            this.RandOD2_nud.Location = new System.Drawing.Point(75, 27);
             this.RandOD2_nud.Name = "RandOD2_nud";
             this.RandOD2_nud.Size = new System.Drawing.Size(120, 20);
             this.RandOD2_nud.TabIndex = 9;
@@ -984,10 +1002,20 @@
             // 
             // SPSim_progressBar
             // 
-            this.SPSim_progressBar.Location = new System.Drawing.Point(38, 171);
+            this.SPSim_progressBar.Location = new System.Drawing.Point(19, 76);
             this.SPSim_progressBar.Name = "SPSim_progressBar";
-            this.SPSim_progressBar.Size = new System.Drawing.Size(380, 23);
+            this.SPSim_progressBar.Size = new System.Drawing.Size(720, 23);
             this.SPSim_progressBar.TabIndex = 0;
+            // 
+            // PassOD_btn
+            // 
+            this.PassOD_btn.Location = new System.Drawing.Point(275, 23);
+            this.PassOD_btn.Name = "PassOD_btn";
+            this.PassOD_btn.Size = new System.Drawing.Size(63, 23);
+            this.PassOD_btn.TabIndex = 8;
+            this.PassOD_btn.Text = "Pass OD";
+            this.PassOD_btn.UseVisualStyleBackColor = true;
+            this.PassOD_btn.Click += new System.EventHandler(this.PassOD_btn_Click);
             // 
             // GeoHyperStar_MainForm
             // 
@@ -1036,6 +1064,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.RandOD_nud)).EndInit();
             this.SPSim_tp.ResumeLayout(false);
             this.SPSim_tp.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RunTimes2_nud)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RandOD2_nud)).EndInit();
             this.ResumeLayout(false);
@@ -1119,6 +1148,8 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown RandOD2_nud;
         private System.Windows.Forms.ProgressBar SPSim_progressBar;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button PassOD_btn;
     }
 }
 
