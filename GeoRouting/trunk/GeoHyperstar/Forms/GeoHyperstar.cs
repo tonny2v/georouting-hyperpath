@@ -1505,6 +1505,14 @@ namespace GeoHyperstar.Forms
                     o = rand.Next(CurrentNet.AllNodes.Count);
                     d = rand.Next(CurrentNet.AllNodes.Count);
                 }
+                Console.WriteLine("If you want to input the test od cases mannually, input y");
+                if (Console.ReadLine() == "y")
+                {
+                    o = Convert.ToInt16(Console.ReadLine());
+                    d = Convert.ToInt16(Console.ReadLine());
+                }
+                Console.WriteLine("o:{0}", o);
+                Console.WriteLine("d:{0}", d);
                 long time = -1;//we actually don't care about the time here
                 
                 //get the hyperpath for the current test OD pair
@@ -1578,6 +1586,7 @@ namespace GeoHyperstar.Forms
             Process proc = Process.Start(@"..\..\PlotSPSim.py");
             proc.WaitForExit();
             pictureBox1.Image=Image.FromFile(@"fig.png");
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
         }
     }
 
