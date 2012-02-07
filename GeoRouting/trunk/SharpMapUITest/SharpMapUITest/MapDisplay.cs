@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using GisSharpBlog.NetTopologySuite;
+using System.Drawing.Imaging;
 
 
 namespace SharpMapUITest
@@ -223,7 +224,6 @@ namespace SharpMapUITest
             //mapImage1.Cursor = mic;
             
             mapImage1.Refresh();
-            
         }
 
         private void mapImage1_SizeChanged(object sender, EventArgs e)
@@ -978,6 +978,22 @@ namespace SharpMapUITest
             foreach (int i in GIDs)
             {
                 RenderElementByID(i, Color.FromArgb(120, 0, 0, 167), "PolyLine", false, g);//渲染点，不刷新地图0,0,167
+            }
+        }
+
+        private void SaveImage_btn_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd=new SaveFileDialog();
+            sfd.InitialDirectory = Path.GetFullPath("..\\..\\");
+            //sfd.Filter = "emf file|*.emf";
+            sfd.Title = "Save picture";
+            if (sfd.ShowDialog()==DialogResult.OK)
+            {
+                using (FileStream fs = new FileStream(sfd.FileName, FileMode.OpenOrCreate))
+                {
+                    Metafile mf = mapImage1.Map.GetMapAsMetafile();
+                    mf.Save(fs,ImageFormat.Tiff);
+                }
             }
         }
 

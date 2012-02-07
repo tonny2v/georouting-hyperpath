@@ -53,6 +53,7 @@
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RenderScanned_btn = new System.Windows.Forms.ToolStripButton();
             this.RenderScannedLinks_btn = new System.Windows.Forms.ToolStripButton();
+            this.SaveImage_btn = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.mapImage1 = new SharpMap.Forms.MapImage();
             this.Animation_trackbar = new System.Windows.Forms.TrackBar();
@@ -78,6 +79,7 @@
             this.zoomToLayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -91,8 +93,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.Layers_clb);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
@@ -104,9 +106,9 @@
             // 
             // Layers_clb
             // 
-            this.Layers_clb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.Layers_clb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Layers_clb.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Layers_clb.FormattingEnabled = true;
             this.Layers_clb.Location = new System.Drawing.Point(6, 27);
@@ -135,7 +137,8 @@
             this.FindElement_btn,
             this.TestTools,
             this.RenderScanned_btn,
-            this.RenderScannedLinks_btn});
+            this.RenderScannedLinks_btn,
+            this.SaveImage_btn});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1073, 25);
@@ -313,11 +316,21 @@
             this.RenderScannedLinks_btn.Text = "Render Scanned Links";
             this.RenderScannedLinks_btn.Click += new System.EventHandler(this.RenderScannedLinks_btn_Click);
             // 
+            // SaveImage_btn
+            // 
+            this.SaveImage_btn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.SaveImage_btn.Image = ((System.Drawing.Image)(resources.GetObject("SaveImage_btn.Image")));
+            this.SaveImage_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SaveImage_btn.Name = "SaveImage_btn";
+            this.SaveImage_btn.Size = new System.Drawing.Size(23, 22);
+            this.SaveImage_btn.Text = "Save Image";
+            this.SaveImage_btn.Click += new System.EventHandler(this.SaveImage_btn_Click);
+            // 
             // splitContainer1
             // 
-            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainer1.Location = new System.Drawing.Point(0, 28);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -342,9 +355,9 @@
             // mapImage1
             // 
             this.mapImage1.ActiveTool = SharpMap.Forms.MapImage.Tools.Pan;
-            this.mapImage1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.mapImage1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mapImage1.BackColor = System.Drawing.Color.White;
             this.mapImage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mapImage1.Cursor = System.Windows.Forms.Cursors.SizeAll;
@@ -411,9 +424,9 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
@@ -540,6 +553,7 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mapImage1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Animation_trackbar)).EndInit();
@@ -601,6 +615,7 @@
         private System.Windows.Forms.ToolStripMenuItem googleEarthItToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton RenderScanned_btn;
         private System.Windows.Forms.ToolStripButton RenderScannedLinks_btn;
+        private System.Windows.Forms.ToolStripButton SaveImage_btn;
     }
 }
 
