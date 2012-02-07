@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SharpMap.Extensions.Data.FwToolsHelper" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Data\FwToolsHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SharpMap.Data.Providers.DataTablePoint" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAIsCAAAACBMYAAgAAAAQIKAIAggCggAACAAAACgAAA=</HashCode>
+      <FileName>Data\Providers\DataTablePoint.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SharpMap.Data.Providers.NtsProvider" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAICAAAECEAIAEgABAAAIKAIAkACAAAAAAAABCgAAA=</HashCode>
+      <FileName>Data\Providers\NtsProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SharpMap.Data.Providers.Ogr" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IgAgCAEAACCFYAUgAAAgAMKAIAkAGJEAICBAAkDgAAA=</HashCode>
+      <FileName>Data\Providers\OgrProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SharpMap.Data.Providers.Oracle" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAIkCAAQAGDAaAAgAAAAQIKAIAkgCggAACAAAAKgAAA=</HashCode>
+      <FileName>Data\Providers\Oracle.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SharpMap.Data.Providers.PostGIS" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAIkCAAAAGDAaAAhAAAAQIKEIAkgCggAAGAAAAKgAIA=</HashCode>
+      <FileName>Data\Providers\PostGIS.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SharpMap.Data.Providers.PostGIS2" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAYkCAAAACDAaAAgAAAAQIKAIAkgCggAACAAAAKgAAA=</HashCode>
+      <FileName>Data\Providers\PostGIS2.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SharpMap.Data.Providers.SpatiaLite" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAkDAAAADAAKgAgAIAEQIKCMBwACAgIACAAAgmgAAI=</HashCode>
+      <FileName>Data\Providers\SpatiaLite.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SharpMap.Data.Providers.SqlLite" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIAkDAAAACAAKgAgAAAAQIKAIAwECQgIACBCAgCgAAA=</HashCode>
+      <FileName>Data\Providers\SqlLite.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SharpMap.Converters.NTS.GeometryConverter" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IkAABIABAAAAAAIAIBACAQQAAgAEAACBYAAAAEAgiAA=</HashCode>
+      <FileName>Data\Providers\NtsGeometryConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SharpMap.Layers.GdalRasterLayer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>WhpiAQYKVCQg0AHCkQByAA4CIajBLBVAhNIMQiQRNSA=</HashCode>
+      <FileName>Layers\GdalRasterLayer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SharpMap.Layers.GdalRasterLayerCachingProxy" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kBgEAAQCUAAAwAGCkAAAAAYiIIhBLAEAAJIAACQRUUA=</HashCode>
+      <FileName>Layers\GdalRasterLayerCachingProxy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SharpMap.Layers.GeoTransform" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAEABEAOAQQAgACQIRkQAAAAAIAABMCAAAAAAQwAg=</HashCode>
+      <FileName>Layers\GeoTransform.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="SharpMap.Data.Providers.SpatiaLiteIndex" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAEABAA=</HashCode>
+      <FileName>Data\Providers\SpatiaLite.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

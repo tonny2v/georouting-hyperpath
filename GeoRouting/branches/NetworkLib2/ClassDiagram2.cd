@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="NetworkLib2.Basis.Element">
+    <Position X="1.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Basis\Element.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLib2.Basis.Element_Dict&lt;K, T&gt;">
+    <Position X="6.5" Y="7.25" Width="2" />
+    <NestedTypes>
+      <Delegate Name="NetworkLib2.Basis.Element_Dict&lt;K, T&gt;.AddEvent" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Basis\Element_Dict.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAEAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Basis\Element_Dict.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLib2.Basis.Network&lt;K, V, E&gt;">
+    <Position X="11" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAIKBQAIAEAAAAAAAAAAAQAAAAEAAAAABAAAA=</HashCode>
+      <FileName>Basis\Network.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NetworkLib2.GeneralNetwork.Algorithm.SinglePathAlgorithm" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAgAEACAAACAAAAAAAAAAAAAAECAAAAAAAABAAQI=</HashCode>
+      <FileName>GeneralNetwork\Algorithm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NetworkLib2.TransNetwork.Algorithm.SinglePathAlgorithm" BaseTypeListCollapsed="true">
+    <Position X="15.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAgAEACAAACQAAAAAAAAAAAABEKAAAAAAAAAAAQo=</HashCode>
+      <FileName>TransNetwork\Algorithm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NetworkLib2.TransNetwork.Concept.Node">
+    <Position X="0.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AICAACAAABAAABCEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TransNetwork\Concept.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLib2.TransNetwork.Concept.Link">
+    <Position X="2.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AoAAAAAIgKAAAgAEAAAAIAAAACAIAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>TransNetwork\Concept.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLib2.TransNetwork.Concept.TNetwork">
+    <Position X="8.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAICBQAIAEAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>TransNetwork\Concept.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLib2.TransNetwork.TopoBuilder.DataBuilder" Collapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAiAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TransNetwork\TopoBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLib2.TransNetwork.TopoBuilder.FileBuilder">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>TransNetwork\TopoBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLib2.TransNetwork.TopoBuilder.SyntheticBuilder">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="NetworkLib2.TransNetwork.TopoBuilder.SyntheticBuilder.NetworkType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>TransNetwork\TopoBuilder.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAQAAAAAAAACAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>TransNetwork\TopoBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLib2.TransNetwork.TopoBuilder.DataBaseBuilder">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>TransNetwork\TopoBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLib2.TransNetwork.TopoBuilder.BinaryDataBuilder" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TransNetwork\TopoBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLib2.GeneralNetwork.Concept.Vertex">
+    <Position X="6.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAgIBAAAAAEAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GeneralNetwork\Concept.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLib2.GeneralNetwork.Concept.Edge">
+    <Position X="4.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAEAAAAABAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GeneralNetwork\Concept.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NetworkLib2.GeneralNetwork.Concept.GNetwork">
+    <Position X="8.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAICBQAIAEAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>GeneralNetwork\Concept.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="NetworkLib2.TransNetwork.Concept.RawLinkDataRow">
+    <Position X="4.5" Y="7.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAECAIAAAAEAAQAAABCwAAAAAEAAAABAAAAA=</HashCode>
+      <FileName>TransNetwork\Concept.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="NetworkLib2.GeneralNetwork.Algorithm.IAlgorithm_GeneralNetwork">
+    <Position X="15.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAI=</HashCode>
+      <FileName>GeneralNetwork\Algorithm.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="NetworkLib2.TransNetwork.Algorithm.IAlgorithm_TransNetwork">
+    <Position X="13.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>TransNetwork\Algorithm.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="NetworkLib2.TransNetwork.Algorithm.AlgName">
+    <Position X="13.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAEAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAo=</HashCode>
+      <FileName>TransNetwork\Algorithm.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
