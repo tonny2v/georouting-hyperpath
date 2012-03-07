@@ -164,7 +164,7 @@
             this.RenderNode_btn.Image = ((System.Drawing.Image)(resources.GetObject("RenderNode_btn.Image")));
             this.RenderNode_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.RenderNode_btn.Name = "RenderNode_btn";
-            this.RenderNode_btn.Size = new System.Drawing.Size(93, 22);
+            this.RenderNode_btn.Size = new System.Drawing.Size(87, 22);
             this.RenderNode_btn.Text = "Render&Node";
             this.RenderNode_btn.Click += new System.EventHandler(this.ShowNodeLabel_btn_Click);
             // 
@@ -173,7 +173,7 @@
             this.RenderLink_btn.Image = ((System.Drawing.Image)(resources.GetObject("RenderLink_btn.Image")));
             this.RenderLink_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.RenderLink_btn.Name = "RenderLink_btn";
-            this.RenderLink_btn.Size = new System.Drawing.Size(86, 22);
+            this.RenderLink_btn.Size = new System.Drawing.Size(80, 22);
             this.RenderLink_btn.Text = "Render&Link";
             this.RenderLink_btn.Click += new System.EventHandler(this.ShowLinkLabel_btn_Click);
             // 
@@ -187,7 +187,7 @@
             this.ToExtent_btn.Image = ((System.Drawing.Image)(resources.GetObject("ToExtent_btn.Image")));
             this.ToExtent_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToExtent_btn.Name = "ToExtent_btn";
-            this.ToExtent_btn.Size = new System.Drawing.Size(73, 22);
+            this.ToExtent_btn.Size = new System.Drawing.Size(71, 22);
             this.ToExtent_btn.Text = "To&Extent";
             this.ToExtent_btn.Click += new System.EventHandler(this.ZoomToExtent_Click);
             // 
@@ -196,7 +196,7 @@
             this.ZoomIn_btn.Image = ((System.Drawing.Image)(resources.GetObject("ZoomIn_btn.Image")));
             this.ZoomIn_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ZoomIn_btn.Name = "ZoomIn_btn";
-            this.ZoomIn_btn.Size = new System.Drawing.Size(69, 22);
+            this.ZoomIn_btn.Size = new System.Drawing.Size(63, 22);
             this.ZoomIn_btn.Text = "Zoom&In";
             this.ZoomIn_btn.Click += new System.EventHandler(this.ZoomIn_btn_Click);
             // 
@@ -205,7 +205,7 @@
             this.ZoomOut_btn.Image = ((System.Drawing.Image)(resources.GetObject("ZoomOut_btn.Image")));
             this.ZoomOut_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ZoomOut_btn.Name = "ZoomOut_btn";
-            this.ZoomOut_btn.Size = new System.Drawing.Size(79, 22);
+            this.ZoomOut_btn.Size = new System.Drawing.Size(71, 22);
             this.ZoomOut_btn.Text = "Zoom&Out";
             this.ZoomOut_btn.Click += new System.EventHandler(this.ZoomOut_btn_Click);
             // 
@@ -214,7 +214,7 @@
             this.Pan_btn.Image = ((System.Drawing.Image)(resources.GetObject("Pan_btn.Image")));
             this.Pan_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Pan_btn.Name = "Pan_btn";
-            this.Pan_btn.Size = new System.Drawing.Size(47, 22);
+            this.Pan_btn.Size = new System.Drawing.Size(45, 22);
             this.Pan_btn.Text = "&Pan";
             this.Pan_btn.Click += new System.EventHandler(this.Pan_btn_Click);
             // 
@@ -223,7 +223,7 @@
             this.Query_btn.Image = ((System.Drawing.Image)(resources.GetObject("Query_btn.Image")));
             this.Query_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Query_btn.Name = "Query_btn";
-            this.Query_btn.Size = new System.Drawing.Size(59, 22);
+            this.Query_btn.Size = new System.Drawing.Size(57, 22);
             this.Query_btn.Text = "&Query";
             this.Query_btn.Click += new System.EventHandler(this.Query_btn_Click);
             // 
@@ -247,6 +247,7 @@
             // NodeInput_tb
             // 
             this.NodeInput_tb.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.NodeInput_tb.Font = new System.Drawing.Font("Tahoma", 8.25F);
             this.NodeInput_tb.Name = "NodeInput_tb";
             this.NodeInput_tb.Size = new System.Drawing.Size(50, 25);
             this.NodeInput_tb.ToolTipText = "Input Node ID";
@@ -259,7 +260,7 @@
             this.FindElement_btn.Image = ((System.Drawing.Image)(resources.GetObject("FindElement_btn.Image")));
             this.FindElement_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.FindElement_btn.Name = "FindElement_btn";
-            this.FindElement_btn.Size = new System.Drawing.Size(50, 22);
+            this.FindElement_btn.Size = new System.Drawing.Size(47, 22);
             this.FindElement_btn.Text = "&Find";
             this.FindElement_btn.Click += new System.EventHandler(this.FindGeometry_btn_Click_1);
             // 
@@ -272,13 +273,14 @@
             this.TestTools.Image = ((System.Drawing.Image)(resources.GetObject("TestTools.Image")));
             this.TestTools.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TestTools.Name = "TestTools";
-            this.TestTools.Size = new System.Drawing.Size(65, 22);
+            this.TestTools.Size = new System.Drawing.Size(61, 22);
             this.TestTools.Text = "Tools";
             // 
             // BufferDistanceToolStripMenuItem
             // 
+            this.BufferDistanceToolStripMenuItem.Font = new System.Drawing.Font("Tahoma", 8.25F);
             this.BufferDistanceToolStripMenuItem.Name = "BufferDistanceToolStripMenuItem";
-            this.BufferDistanceToolStripMenuItem.Size = new System.Drawing.Size(152, 23);
+            this.BufferDistanceToolStripMenuItem.Size = new System.Drawing.Size(152, 21);
             this.BufferDistanceToolStripMenuItem.Text = "Set Buffer Distance";
             this.BufferDistanceToolStripMenuItem.ToolTipText = "BufferDistance";
             // 
@@ -379,7 +381,7 @@
             // 
             this.Animation_trackbar.Location = new System.Drawing.Point(387, 8);
             this.Animation_trackbar.Name = "Animation_trackbar";
-            this.Animation_trackbar.Size = new System.Drawing.Size(566, 45);
+            this.Animation_trackbar.Size = new System.Drawing.Size(566, 42);
             this.Animation_trackbar.TabIndex = 11;
             // 
             // Stop_btn
@@ -480,28 +482,28 @@
             // 
             this.CurrentDB_tsl.Image = ((System.Drawing.Image)(resources.GetObject("CurrentDB_tsl.Image")));
             this.CurrentDB_tsl.Name = "CurrentDB_tsl";
-            this.CurrentDB_tsl.Size = new System.Drawing.Size(114, 17);
+            this.CurrentDB_tsl.Size = new System.Drawing.Size(109, 17);
             this.CurrentDB_tsl.Text = "Current DataBase";
             // 
             // SelectedLayer_tsl
             // 
             this.SelectedLayer_tsl.Image = ((System.Drawing.Image)(resources.GetObject("SelectedLayer_tsl.Image")));
             this.SelectedLayer_tsl.Name = "SelectedLayer_tsl";
-            this.SelectedLayer_tsl.Size = new System.Drawing.Size(94, 17);
+            this.SelectedLayer_tsl.Size = new System.Drawing.Size(90, 17);
             this.SelectedLayer_tsl.Text = "Current Layer";
             // 
             // Status_tsl
             // 
             this.Status_tsl.Image = ((System.Drawing.Image)(resources.GetObject("Status_tsl.Image")));
             this.Status_tsl.Name = "Status_tsl";
-            this.Status_tsl.Size = new System.Drawing.Size(55, 17);
+            this.Status_tsl.Size = new System.Drawing.Size(54, 17);
             this.Status_tsl.Text = "Status";
             // 
             // SelectedItem_tsl
             // 
             this.SelectedItem_tsl.Image = ((System.Drawing.Image)(resources.GetObject("SelectedItem_tsl.Image")));
             this.SelectedItem_tsl.Name = "SelectedItem_tsl";
-            this.SelectedItem_tsl.Size = new System.Drawing.Size(122, 17);
+            this.SelectedItem_tsl.Size = new System.Drawing.Size(114, 17);
             this.SelectedItem_tsl.Text = "Selected Geometry";
             // 
             // toolStripSeparator3
