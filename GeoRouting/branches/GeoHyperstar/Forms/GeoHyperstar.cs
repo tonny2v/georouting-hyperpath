@@ -962,6 +962,7 @@ namespace GeoHyperstar.Forms
                 cmd.CommandType = CommandType.Text;
                 NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
 
+
 #if NonGISTopo
                 int nodecount = 2500;
                 for (int i = 0; i < nodecount; i++)
