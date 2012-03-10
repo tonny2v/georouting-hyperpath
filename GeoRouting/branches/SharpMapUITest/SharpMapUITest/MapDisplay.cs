@@ -34,7 +34,7 @@ namespace SharpMapUITest
         + ";DataBase=" + database
         + ";Port=5432"
         + ";Userid= postgres"
-        + ";password=wangyiqi"
+        + ";password=password"
         + ";Protocol=3;SSL=false;Pooling=true;MinPoolSize=1;MaxPoolSize=20;EnCoding=UNICODE;Timeout=15;SslMode=Disable";
 
         SharpMap.Layers.LabelLayer verticesAsLabel;//node label style
@@ -571,7 +571,7 @@ namespace SharpMapUITest
         + ";DataBase=" + database
         + ";Port=5432"
         + ";Userid= postgres"
-        + ";password=wangyiqi"
+        + ";password=password"
         + ";Protocol=3;SSL=false;Pooling=true;MinPoolSize=1;MaxPoolSize=20;EnCoding=UNICODE;Timeout=15;SslMode=Disable";
         }
 

@@ -3,16 +3,16 @@
   <Profiles />
   <Settings>
     <Setting Name="Mesh533935" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Server=localhost;DataBase=postgis2;Port=5432;Userid=postgres;password=wangyiqi</Value>
+      <Value Profile="(Default)">Server=localhost;DataBase=postgis2;Port=5432;Userid=postgres;password=password</Value>
     </Setting>
     <Setting Name="USNetwork" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Server=localhost;DataBase=postgis3;Port=5432;Userid=postgres;password=wangyiqi</Value>
+      <Value Profile="(Default)">Server=localhost;DataBase=postgis3;Port=5432;Userid=postgres;password=password</Value>
     </Setting>
     <Setting Name="TestNetwork" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Server=localhost;DataBase=postgis1;Port=5432;Userid=postgres;password=wangyiqi</Value>
+      <Value Profile="(Default)">Server=localhost;DataBase=postgis1;Port=5432;Userid=postgres;password=password</Value>
     </Setting>
     <Setting Name="DefaultCon" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Server=localhost;DataBase=postgis1;Port=5432;Userid=postgres;password=wangyiqi</Value>
+      <Value Profile="(Default)">Server=localhost;DataBase=postgis1;Port=5432;Userid=postgres;password=password</Value>
     </Setting>
   </Settings>
 </SettingsFile>

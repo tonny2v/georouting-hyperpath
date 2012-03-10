@@ -117,7 +117,7 @@
             this.password_tb.PasswordChar = '*';
             this.password_tb.Size = new System.Drawing.Size(100, 20);
             this.password_tb.TabIndex = 9;
-            this.password_tb.Text = "wangyiqi";
+            this.password_tb.Text = "password";
             // 
             // label5
             // 
