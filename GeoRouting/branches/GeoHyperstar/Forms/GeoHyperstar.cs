@@ -26,6 +26,7 @@ using SharpMapUITest;
 using NetworkLib.Element;
 using WinChart;
 using System.Drawing;
+using System.Configuration;
 
 namespace GeoHyperstar.Forms
 {
@@ -382,17 +383,17 @@ namespace GeoHyperstar.Forms
 #endif
 
 #if !RSA
-                            cmd.CommandText = "DROP TABLE IF EXISTS hyperpath_lyr;select * into hyperpath_lyr from road join hyperpath on (hyperpath.id=road.gid);Drop table if exists hyperpath";
+                            cmd.CommandText = "DROP TABLE IF EXISTS hyperpath_lyr;select * into hyperpath_lyr from "+ ConfigurationManager.AppSettings.Get("road").ToString()+" join hyperpath on (hyperpath.id=road.gid);Drop table if exists hyperpath";
                             if (conn.State == ConnectionState.Closed) conn.Open();
                             cmd.ExecuteNonQuery();
 #else
-                                cmd.CommandText = "DROP TABLE IF EXISTS popath_lyr;select * into popath_lyr from road join popath on (popath.id=road.gid);Drop table if exists popath";
+                                cmd.CommandText = "DROP TABLE IF EXISTS popath_lyr;select * into popath_lyr from "+ ConfigurationManager.AppSettings.Get("road").ToString()+" join popath on (popath.id=road.gid);Drop table if exists popath";
                                 if (conn.State == ConnectionState.Closed) conn.Open();
                                 cmd.ExecuteNonQuery();
 #endif
 
 #if RegretPath
-                                cmd.CommandText = "DROP TABLE IF EXISTS regretpath_lyr;select * into regretpath_lyr from road join regretpath on (regretpath.id=road.gid);Drop table if exists regretpath";
+                                cmd.CommandText = "DROP TABLE IF EXISTS regretpath_lyr;select * into regretpath_lyr from "+ ConfigurationManager.AppSettings.Get("road").ToString()+" join regretpath on (regretpath.id=road.gid);Drop table if exists regretpath";
                                 if (conn.State == ConnectionState.Closed) conn.Open();
                                 cmd.ExecuteNonQuery();
 #endif
@@ -993,7 +994,7 @@ namespace GeoHyperstar.Forms
                     CurrentNet.AllNodes.Add(newnode);
                 }
 #endif
-                cmd.CommandText = "SELECT * FROM road ORDER BY gid;";
+                cmd.CommandText = "SELECT * from "+ ConfigurationManager.AppSettings.Get("road").ToString()+" ORDER BY gid;";
                 dt_link = new DataTable("links");
                 da.Fill(dt_link);
                 cmd.Dispose();
