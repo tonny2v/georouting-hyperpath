@@ -335,8 +335,7 @@ namespace GeoHyperstar.Forms
                                     + "CREATE TABLE popath (id INTEGER, choice_possibility DOUBLE PRECISION); SELECT * FROM popath;";
 
 #else
-                            cmd.CommandText = "DROP TABLE IF EXISTS hyperpath;"
-                                + "CREATE TABLE hyperpath (id INTEGER, choice_possibility DOUBLE PRECISION); SELECT * FROM hyperpath";
+                            cmd.CommandText = "CREATE TABLE IF NOT EXISTS hyperpath_tmp (gid_tmp INTEGER, p_tmp DOUBLE PRECISION); DELETE FROM hyperpath_tmp; SELECT * FROM hyperpath_tmp";
 #endif
                                 da.Fill(DsToUpdate);
                                 //手动创建Datatable的关键语句
@@ -345,11 +344,11 @@ namespace GeoHyperstar.Forms
                                 for (int i = 0; i < FinalPathSet.Count; i++)
                                 {
                                     DataRow dr = DsToUpdate.Tables[0].NewRow();
-                                    dr["id"] = FinalPathSet[i].GID;
+                                    dr["gid_tmp"] = FinalPathSet[i].GID;
 #if RSA
                                     dr["choice_possibility"] = 1;
 #else
-                                dr["choice_possibility"] = FinalPathSet[i].Pa;
+                                dr["p_tmp"] = FinalPathSet[i].Pa;
 #endif
                                     DsToUpdate.Tables[0].Rows.Add(dr);
                                 }
@@ -383,8 +382,9 @@ namespace GeoHyperstar.Forms
 #endif
 
 #if !RSA
-                            cmd.CommandText = "DROP TABLE IF EXISTS hyperpath_lyr;select * into hyperpath_lyr from "+ ConfigurationManager.AppSettings.Get("road").ToString()+" join hyperpath on (hyperpath.id=road.gid);Drop table if exists hyperpath";
-                            if (conn.State == ConnectionState.Closed) conn.Open();
+                            //cmd.CommandText = "DROP TABLE IF EXISTS hyperpath_lyr;select * into hyperpath_lyr from "+ ConfigurationManager.AppSettings.Get("road").ToString()+" join hyperpath on (hyperpath.id=road.gid);Drop table if exists hyperpath";
+                                cmd.CommandText = @"CREATE OR REPLACE VIEW hyperpath_lyr AS SELECT * from road JOIN hyperpath_tmp ON road.gid = hyperpath_tmp.gid_tmp;";
+                                if (conn.State == ConnectionState.Closed) conn.Open(); 
                             cmd.ExecuteNonQuery();
 #else
                                 cmd.CommandText = "DROP TABLE IF EXISTS popath_lyr;select * into popath_lyr from "+ ConfigurationManager.AppSettings.Get("road").ToString()+" join popath on (popath.id=road.gid);Drop table if exists popath";
@@ -470,7 +470,8 @@ namespace GeoHyperstar.Forms
             MapDisplayForm.Nodes_Animation = NodeDirect_animation.ToArray();
             MapDisplayForm.Links_Animation = SelectedLink_animation.ToArray();
             MapDisplayForm.Owner = this;
-
+            MapDisplay.origin = Convert.ToInt32(HyperFrom_nud.Value);
+            MapDisplay.destination = Convert.ToInt32(HyperTo_nud.Value);
             MapDisplayForm.ShowDialog(this);
             MapDisplayForm.Dispose();
         }

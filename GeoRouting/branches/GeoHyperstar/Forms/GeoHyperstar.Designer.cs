@@ -133,9 +133,9 @@
             // 
             // RunAlg_btn
             // 
-            this.RunAlg_btn.Location = new System.Drawing.Point(206, 23);
+            this.RunAlg_btn.Location = new System.Drawing.Point(206, 21);
             this.RunAlg_btn.Name = "RunAlg_btn";
-            this.RunAlg_btn.Size = new System.Drawing.Size(63, 23);
+            this.RunAlg_btn.Size = new System.Drawing.Size(63, 21);
             this.RunAlg_btn.TabIndex = 3;
             this.RunAlg_btn.Text = "Run";
             this.RunAlg_btn.UseVisualStyleBackColor = true;
@@ -143,7 +143,7 @@
             // 
             // Origin_nud
             // 
-            this.Origin_nud.Location = new System.Drawing.Point(42, 24);
+            this.Origin_nud.Location = new System.Drawing.Point(42, 22);
             this.Origin_nud.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -155,7 +155,7 @@
             0,
             0});
             this.Origin_nud.Name = "Origin_nud";
-            this.Origin_nud.Size = new System.Drawing.Size(58, 20);
+            this.Origin_nud.Size = new System.Drawing.Size(58, 21);
             this.Origin_nud.TabIndex = 4;
             this.Origin_nud.Value = new decimal(new int[] {
             1,
@@ -165,7 +165,7 @@
             // 
             // Destination_nud
             // 
-            this.Destination_nud.Location = new System.Drawing.Point(142, 24);
+            this.Destination_nud.Location = new System.Drawing.Point(142, 22);
             this.Destination_nud.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -177,7 +177,7 @@
             0,
             0});
             this.Destination_nud.Name = "Destination_nud";
-            this.Destination_nud.Size = new System.Drawing.Size(58, 20);
+            this.Destination_nud.Size = new System.Drawing.Size(58, 21);
             this.Destination_nud.TabIndex = 5;
             this.Destination_nud.Value = new decimal(new int[] {
             1,
@@ -188,26 +188,26 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 26);
+            this.label2.Location = new System.Drawing.Point(6, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(30, 13);
+            this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 6;
             this.label2.Text = "From";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(112, 26);
+            this.label3.Location = new System.Drawing.Point(112, 24);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(20, 13);
+            this.label3.Size = new System.Drawing.Size(17, 12);
             this.label3.TabIndex = 7;
             this.label3.Text = "To";
             // 
             // SaveToFile_btn
             // 
-            this.SaveToFile_btn.Location = new System.Drawing.Point(20, 22);
+            this.SaveToFile_btn.Location = new System.Drawing.Point(20, 20);
             this.SaveToFile_btn.Name = "SaveToFile_btn";
-            this.SaveToFile_btn.Size = new System.Drawing.Size(80, 23);
+            this.SaveToFile_btn.Size = new System.Drawing.Size(80, 21);
             this.SaveToFile_btn.TabIndex = 9;
             this.SaveToFile_btn.Text = "Save To File";
             this.SaveToFile_btn.UseVisualStyleBackColor = true;
@@ -215,9 +215,9 @@
             // 
             // ReadFromFile_btn
             // 
-            this.ReadFromFile_btn.Location = new System.Drawing.Point(111, 22);
+            this.ReadFromFile_btn.Location = new System.Drawing.Point(111, 20);
             this.ReadFromFile_btn.Name = "ReadFromFile_btn";
-            this.ReadFromFile_btn.Size = new System.Drawing.Size(89, 23);
+            this.ReadFromFile_btn.Size = new System.Drawing.Size(89, 21);
             this.ReadFromFile_btn.TabIndex = 10;
             this.ReadFromFile_btn.Text = "Read From File";
             this.ReadFromFile_btn.UseVisualStyleBackColor = true;
@@ -232,18 +232,18 @@
             this.groupBox1.Controls.Add(this.Export_btn);
             this.groupBox1.Controls.Add(this.ReadFromFile_btn);
             this.groupBox1.Controls.Add(this.SaveToFile_btn);
-            this.groupBox1.Location = new System.Drawing.Point(9, 33);
+            this.groupBox1.Location = new System.Drawing.Point(9, 30);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(387, 58);
+            this.groupBox1.Size = new System.Drawing.Size(387, 54);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Network";
             // 
             // Export_btn
             // 
-            this.Export_btn.Location = new System.Drawing.Point(210, 22);
+            this.Export_btn.Location = new System.Drawing.Point(210, 20);
             this.Export_btn.Name = "Export_btn";
-            this.Export_btn.Size = new System.Drawing.Size(63, 23);
+            this.Export_btn.Size = new System.Drawing.Size(63, 21);
             this.Export_btn.TabIndex = 11;
             this.Export_btn.Text = "Export";
             this.Export_btn.UseVisualStyleBackColor = true;
@@ -260,18 +260,18 @@
             this.groupBox2.Controls.Add(this.Destination_nud);
             this.groupBox2.Controls.Add(this.RunAlg_btn);
             this.groupBox2.Controls.Add(this.Origin_nud);
-            this.groupBox2.Location = new System.Drawing.Point(9, 97);
+            this.groupBox2.Location = new System.Drawing.Point(9, 90);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(387, 66);
+            this.groupBox2.Size = new System.Drawing.Size(387, 61);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dijkstra Shortest path";
             // 
             // PassOD_btn
             // 
-            this.PassOD_btn.Location = new System.Drawing.Point(275, 23);
+            this.PassOD_btn.Location = new System.Drawing.Point(275, 21);
             this.PassOD_btn.Name = "PassOD_btn";
-            this.PassOD_btn.Size = new System.Drawing.Size(63, 23);
+            this.PassOD_btn.Size = new System.Drawing.Size(63, 21);
             this.PassOD_btn.TabIndex = 8;
             this.PassOD_btn.Text = "Pass OD";
             this.PassOD_btn.UseVisualStyleBackColor = true;
@@ -279,9 +279,9 @@
             // 
             // DHS_btn
             // 
-            this.DHS_btn.Location = new System.Drawing.Point(315, 98);
+            this.DHS_btn.Location = new System.Drawing.Point(315, 90);
             this.DHS_btn.Name = "DHS_btn";
-            this.DHS_btn.Size = new System.Drawing.Size(63, 23);
+            this.DHS_btn.Size = new System.Drawing.Size(63, 21);
             this.DHS_btn.TabIndex = 14;
             this.DHS_btn.Text = "Run";
             this.DHS_btn.UseVisualStyleBackColor = true;
@@ -305,9 +305,9 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.HyperTo_nud);
             this.groupBox3.Controls.Add(this.HyperFrom_nud);
-            this.groupBox3.Location = new System.Drawing.Point(9, 169);
+            this.groupBox3.Location = new System.Drawing.Point(9, 156);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(387, 163);
+            this.groupBox3.Size = new System.Drawing.Size(387, 150);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Multipath Algorithm";
@@ -319,9 +319,9 @@
             this.SingleRunOption_group.Controls.Add(this.GloablOnPOset_ckb);
             this.SingleRunOption_group.Controls.Add(this.LocalSearch_rb);
             this.SingleRunOption_group.Controls.Add(this.GlobalSearch_rb);
-            this.SingleRunOption_group.Location = new System.Drawing.Point(9, 19);
+            this.SingleRunOption_group.Location = new System.Drawing.Point(9, 18);
             this.SingleRunOption_group.Name = "SingleRunOption_group";
-            this.SingleRunOption_group.Size = new System.Drawing.Size(369, 68);
+            this.SingleRunOption_group.Size = new System.Drawing.Size(369, 63);
             this.SingleRunOption_group.TabIndex = 31;
             this.SingleRunOption_group.TabStop = false;
             this.SingleRunOption_group.Text = "Single Run Options";
@@ -331,7 +331,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(6, 16);
+            this.label7.Location = new System.Drawing.Point(6, 15);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(95, 13);
             this.label7.TabIndex = 26;
@@ -342,9 +342,9 @@
             this.LocalIncludeEt_ckb.AutoSize = true;
             this.LocalIncludeEt_ckb.Checked = true;
             this.LocalIncludeEt_ckb.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.LocalIncludeEt_ckb.Location = new System.Drawing.Point(200, 15);
+            this.LocalIncludeEt_ckb.Location = new System.Drawing.Point(200, 14);
             this.LocalIncludeEt_ckb.Name = "LocalIncludeEt_ckb";
-            this.LocalIncludeEt_ckb.Size = new System.Drawing.Size(109, 17);
+            this.LocalIncludeEt_ckb.Size = new System.Drawing.Size(132, 15);
             this.LocalIncludeEt_ckb.TabIndex = 30;
             this.LocalIncludeEt_ckb.Text = "Local Include E(t)";
             this.LocalIncludeEt_ckb.UseVisualStyleBackColor = true;
@@ -354,9 +354,9 @@
             this.GloablOnPOset_ckb.AutoSize = true;
             this.GloablOnPOset_ckb.Checked = true;
             this.GloablOnPOset_ckb.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.GloablOnPOset_ckb.Location = new System.Drawing.Point(200, 42);
+            this.GloablOnPOset_ckb.Location = new System.Drawing.Point(200, 39);
             this.GloablOnPOset_ckb.Name = "GloablOnPOset_ckb";
-            this.GloablOnPOset_ckb.Size = new System.Drawing.Size(78, 17);
+            this.GloablOnPOset_ckb.Size = new System.Drawing.Size(78, 15);
             this.GloablOnPOset_ckb.TabIndex = 27;
             this.GloablOnPOset_ckb.Text = "On PO Net";
             this.GloablOnPOset_ckb.UseVisualStyleBackColor = true;
@@ -364,9 +364,9 @@
             // LocalSearch_rb
             // 
             this.LocalSearch_rb.AutoSize = true;
-            this.LocalSearch_rb.Location = new System.Drawing.Point(106, 14);
+            this.LocalSearch_rb.Location = new System.Drawing.Point(106, 13);
             this.LocalSearch_rb.Name = "LocalSearch_rb";
-            this.LocalSearch_rb.Size = new System.Drawing.Size(88, 17);
+            this.LocalSearch_rb.Size = new System.Drawing.Size(95, 15);
             this.LocalSearch_rb.TabIndex = 24;
             this.LocalSearch_rb.Text = "Local Search";
             this.LocalSearch_rb.UseVisualStyleBackColor = true;
@@ -375,9 +375,9 @@
             // 
             this.GlobalSearch_rb.AutoSize = true;
             this.GlobalSearch_rb.Checked = true;
-            this.GlobalSearch_rb.Location = new System.Drawing.Point(106, 41);
+            this.GlobalSearch_rb.Location = new System.Drawing.Point(106, 38);
             this.GlobalSearch_rb.Name = "GlobalSearch_rb";
-            this.GlobalSearch_rb.Size = new System.Drawing.Size(92, 17);
+            this.GlobalSearch_rb.Size = new System.Drawing.Size(101, 15);
             this.GlobalSearch_rb.TabIndex = 25;
             this.GlobalSearch_rb.TabStop = true;
             this.GlobalSearch_rb.Text = "Global Search";
@@ -385,9 +385,9 @@
             // 
             // RandOD_btn
             // 
-            this.RandOD_btn.Location = new System.Drawing.Point(246, 98);
+            this.RandOD_btn.Location = new System.Drawing.Point(246, 90);
             this.RandOD_btn.Name = "RandOD_btn";
-            this.RandOD_btn.Size = new System.Drawing.Size(63, 23);
+            this.RandOD_btn.Size = new System.Drawing.Size(63, 21);
             this.RandOD_btn.TabIndex = 21;
             this.RandOD_btn.Text = "RandOD";
             this.RandOD_btn.UseVisualStyleBackColor = true;
@@ -395,9 +395,9 @@
             // 
             // Swap_btn
             // 
-            this.Swap_btn.Location = new System.Drawing.Point(196, 98);
+            this.Swap_btn.Location = new System.Drawing.Point(196, 90);
             this.Swap_btn.Name = "Swap_btn";
-            this.Swap_btn.Size = new System.Drawing.Size(44, 23);
+            this.Swap_btn.Size = new System.Drawing.Size(44, 21);
             this.Swap_btn.TabIndex = 20;
             this.Swap_btn.Text = "Swap";
             this.Swap_btn.UseVisualStyleBackColor = true;
@@ -405,9 +405,9 @@
             // 
             // WinChart_btn
             // 
-            this.WinChart_btn.Location = new System.Drawing.Point(231, 130);
+            this.WinChart_btn.Location = new System.Drawing.Point(231, 120);
             this.WinChart_btn.Name = "WinChart_btn";
-            this.WinChart_btn.Size = new System.Drawing.Size(56, 23);
+            this.WinChart_btn.Size = new System.Drawing.Size(56, 21);
             this.WinChart_btn.TabIndex = 19;
             this.WinChart_btn.Text = "Chart";
             this.WinChart_btn.UseVisualStyleBackColor = true;
@@ -416,9 +416,9 @@
             // 
             // MapDisplay_btn
             // 
-            this.MapDisplay_btn.Location = new System.Drawing.Point(297, 130);
+            this.MapDisplay_btn.Location = new System.Drawing.Point(297, 120);
             this.MapDisplay_btn.Name = "MapDisplay_btn";
-            this.MapDisplay_btn.Size = new System.Drawing.Size(81, 23);
+            this.MapDisplay_btn.Size = new System.Drawing.Size(81, 21);
             this.MapDisplay_btn.TabIndex = 8;
             this.MapDisplay_btn.Text = "ShowMap";
             this.MapDisplay_btn.UseVisualStyleBackColor = true;
@@ -428,7 +428,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 140);
+            this.label6.Location = new System.Drawing.Point(6, 129);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(69, 13);
             this.label6.TabIndex = 18;
@@ -437,9 +437,9 @@
             // SaveToDatabase_rb
             // 
             this.SaveToDatabase_rb.AutoSize = true;
-            this.SaveToDatabase_rb.Location = new System.Drawing.Point(138, 138);
+            this.SaveToDatabase_rb.Location = new System.Drawing.Point(138, 127);
             this.SaveToDatabase_rb.Name = "SaveToDatabase_rb";
-            this.SaveToDatabase_rb.Size = new System.Drawing.Size(87, 17);
+            this.SaveToDatabase_rb.Size = new System.Drawing.Size(89, 15);
             this.SaveToDatabase_rb.TabIndex = 17;
             this.SaveToDatabase_rb.TabStop = true;
             this.SaveToDatabase_rb.Text = "To Database";
@@ -448,18 +448,18 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 103);
+            this.label4.Location = new System.Drawing.Point(6, 95);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 13);
+            this.label4.Size = new System.Drawing.Size(29, 12);
             this.label4.TabIndex = 6;
             this.label4.Text = "From";
             // 
             // SaveToFile_rb
             // 
             this.SaveToFile_rb.AutoSize = true;
-            this.SaveToFile_rb.Location = new System.Drawing.Point(75, 138);
+            this.SaveToFile_rb.Location = new System.Drawing.Point(75, 127);
             this.SaveToFile_rb.Name = "SaveToFile_rb";
-            this.SaveToFile_rb.Size = new System.Drawing.Size(57, 17);
+            this.SaveToFile_rb.Size = new System.Drawing.Size(65, 15);
             this.SaveToFile_rb.TabIndex = 16;
             this.SaveToFile_rb.TabStop = true;
             this.SaveToFile_rb.Text = "To File";
@@ -468,15 +468,15 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(106, 103);
+            this.label5.Location = new System.Drawing.Point(106, 95);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(20, 13);
+            this.label5.Size = new System.Drawing.Size(17, 12);
             this.label5.TabIndex = 7;
             this.label5.Text = "To";
             // 
             // HyperTo_nud
             // 
-            this.HyperTo_nud.Location = new System.Drawing.Point(132, 101);
+            this.HyperTo_nud.Location = new System.Drawing.Point(132, 93);
             this.HyperTo_nud.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -488,7 +488,7 @@
             0,
             0});
             this.HyperTo_nud.Name = "HyperTo_nud";
-            this.HyperTo_nud.Size = new System.Drawing.Size(58, 20);
+            this.HyperTo_nud.Size = new System.Drawing.Size(58, 21);
             this.HyperTo_nud.TabIndex = 5;
             this.HyperTo_nud.Value = new decimal(new int[] {
             200,
@@ -498,7 +498,7 @@
             // 
             // HyperFrom_nud
             // 
-            this.HyperFrom_nud.Location = new System.Drawing.Point(42, 101);
+            this.HyperFrom_nud.Location = new System.Drawing.Point(42, 93);
             this.HyperFrom_nud.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -510,7 +510,7 @@
             0,
             0});
             this.HyperFrom_nud.Name = "HyperFrom_nud";
-            this.HyperFrom_nud.Size = new System.Drawing.Size(58, 20);
+            this.HyperFrom_nud.Size = new System.Drawing.Size(58, 21);
             this.HyperFrom_nud.TabIndex = 4;
             this.HyperFrom_nud.Value = new decimal(new int[] {
             300,
@@ -536,7 +536,7 @@
             "MaxDelay= 0.5R"});
             this.MaxDelayLevel_cmb.Location = new System.Drawing.Point(98, 6);
             this.MaxDelayLevel_cmb.Name = "MaxDelayLevel_cmb";
-            this.MaxDelayLevel_cmb.Size = new System.Drawing.Size(202, 21);
+            this.MaxDelayLevel_cmb.Size = new System.Drawing.Size(202, 20);
             this.MaxDelayLevel_cmb.TabIndex = 17;
             this.MaxDelayLevel_cmb.SelectedIndexChanged += new System.EventHandler(this.MaxDelayLevel_cmb_SelectedIndexChanged);
             // 
@@ -547,9 +547,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(6, 10);
+            this.label1.Location = new System.Drawing.Point(6, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 13);
+            this.label1.Size = new System.Drawing.Size(95, 12);
             this.label1.TabIndex = 18;
             this.label1.Text = "MaxDelay Level:";
             // 
@@ -557,7 +557,7 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 493);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 453);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(755, 22);
             this.statusStrip1.TabIndex = 19;
@@ -566,7 +566,7 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(131, 17);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
             // menuStrip1
@@ -577,7 +577,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(755, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(755, 25);
             this.menuStrip1.TabIndex = 21;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -587,7 +587,7 @@
             this.runToolStripMenuItem.Name = "runToolStripMenuItem";
             this.runToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.runToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.runToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.runToolStripMenuItem.Size = new System.Drawing.Size(58, 21);
             this.runToolStripMenuItem.Text = "&Run";
             this.runToolStripMenuItem.Click += new System.EventHandler(this.runToolStripMenuItem_Click);
             // 
@@ -600,34 +600,34 @@
             this.advancedToolStripMenuItem});
             this.settingToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("settingToolStripMenuItem.Image")));
             this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
-            this.settingToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(76, 21);
             this.settingToolStripMenuItem.Text = "&Setting";
             // 
             // testNetwrokToolStripMenuItem
             // 
             this.testNetwrokToolStripMenuItem.Name = "testNetwrokToolStripMenuItem";
-            this.testNetwrokToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.testNetwrokToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.testNetwrokToolStripMenuItem.Text = "&Test Netwrok";
             this.testNetwrokToolStripMenuItem.Click += new System.EventHandler(this.testNetwrokToolStripMenuItem_Click);
             // 
             // mesh533945ToolStripMenuItem
             // 
             this.mesh533945ToolStripMenuItem.Name = "mesh533945ToolStripMenuItem";
-            this.mesh533945ToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.mesh533945ToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.mesh533945ToolStripMenuItem.Text = "&Mesh 533935";
             this.mesh533945ToolStripMenuItem.Click += new System.EventHandler(this.mesh533945ToolStripMenuItem_Click);
             // 
             // uSNetworkToolStripMenuItem
             // 
             this.uSNetworkToolStripMenuItem.Name = "uSNetworkToolStripMenuItem";
-            this.uSNetworkToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.uSNetworkToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.uSNetworkToolStripMenuItem.Text = "&US. Network";
             this.uSNetworkToolStripMenuItem.Click += new System.EventHandler(this.uSNetworkToolStripMenuItem_Click);
             // 
             // advancedToolStripMenuItem
             // 
             this.advancedToolStripMenuItem.Name = "advancedToolStripMenuItem";
-            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.advancedToolStripMenuItem.Text = "&Advanced";
             this.advancedToolStripMenuItem.Click += new System.EventHandler(this.advancedToolStripMenuItem_Click);
             // 
@@ -635,19 +635,19 @@
             // 
             this.helpToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("helpToolStripMenuItem.Image")));
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(63, 21);
             this.helpToolStripMenuItem.Text = "&Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // AlgLog_tb
             // 
             this.AlgLog_tb.BackColor = System.Drawing.Color.White;
-            this.AlgLog_tb.Location = new System.Drawing.Point(6, 26);
+            this.AlgLog_tb.Location = new System.Drawing.Point(6, 24);
             this.AlgLog_tb.Multiline = true;
             this.AlgLog_tb.Name = "AlgLog_tb";
             this.AlgLog_tb.ReadOnly = true;
             this.AlgLog_tb.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.AlgLog_tb.Size = new System.Drawing.Size(303, 364);
+            this.AlgLog_tb.Size = new System.Drawing.Size(303, 336);
             this.AlgLog_tb.TabIndex = 22;
             // 
             // groupBox4
@@ -657,18 +657,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.Clear_btn);
             this.groupBox4.Controls.Add(this.AlgLog_tb);
-            this.groupBox4.Location = new System.Drawing.Point(409, 10);
+            this.groupBox4.Location = new System.Drawing.Point(409, 9);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(315, 421);
+            this.groupBox4.Size = new System.Drawing.Size(315, 389);
             this.groupBox4.TabIndex = 23;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Algortithm Log";
             // 
             // Clear_btn
             // 
-            this.Clear_btn.Location = new System.Drawing.Point(127, 392);
+            this.Clear_btn.Location = new System.Drawing.Point(127, 362);
             this.Clear_btn.Name = "Clear_btn";
-            this.Clear_btn.Size = new System.Drawing.Size(75, 23);
+            this.Clear_btn.Size = new System.Drawing.Size(75, 21);
             this.Clear_btn.TabIndex = 23;
             this.Clear_btn.Text = "Clear Log";
             this.Clear_btn.UseVisualStyleBackColor = true;
@@ -686,9 +686,9 @@
             this.groupBox5.Controls.Add(this.label8);
             this.groupBox5.Controls.Add(this.SimStart_btn);
             this.groupBox5.Controls.Add(this.Iteration_nud);
-            this.groupBox5.Location = new System.Drawing.Point(9, 338);
+            this.groupBox5.Location = new System.Drawing.Point(9, 312);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(387, 93);
+            this.groupBox5.Size = new System.Drawing.Size(387, 86);
             this.groupBox5.TabIndex = 28;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Monte Carlo";
@@ -698,9 +698,9 @@
             this.SimLocalIncludeEt_ckb.AutoSize = true;
             this.SimLocalIncludeEt_ckb.Checked = true;
             this.SimLocalIncludeEt_ckb.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.SimLocalIncludeEt_ckb.Location = new System.Drawing.Point(121, 33);
+            this.SimLocalIncludeEt_ckb.Location = new System.Drawing.Point(121, 30);
             this.SimLocalIncludeEt_ckb.Name = "SimLocalIncludeEt_ckb";
-            this.SimLocalIncludeEt_ckb.Size = new System.Drawing.Size(109, 17);
+            this.SimLocalIncludeEt_ckb.Size = new System.Drawing.Size(132, 16);
             this.SimLocalIncludeEt_ckb.TabIndex = 29;
             this.SimLocalIncludeEt_ckb.Text = "Local Include E(t)";
             this.SimLocalIncludeEt_ckb.UseVisualStyleBackColor = true;
@@ -710,44 +710,44 @@
             this.SimGlobalOnPO_ckb.AutoSize = true;
             this.SimGlobalOnPO_ckb.Checked = true;
             this.SimGlobalOnPO_ckb.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.SimGlobalOnPO_ckb.Location = new System.Drawing.Point(121, 10);
+            this.SimGlobalOnPO_ckb.Location = new System.Drawing.Point(121, 9);
             this.SimGlobalOnPO_ckb.Name = "SimGlobalOnPO_ckb";
-            this.SimGlobalOnPO_ckb.Size = new System.Drawing.Size(111, 17);
+            this.SimGlobalOnPO_ckb.Size = new System.Drawing.Size(120, 16);
             this.SimGlobalOnPO_ckb.TabIndex = 28;
             this.SimGlobalOnPO_ckb.Text = "Global On PO Net";
             this.SimGlobalOnPO_ckb.UseVisualStyleBackColor = true;
             // 
             // Chart_btn
             // 
-            this.Chart_btn.Location = new System.Drawing.Point(295, 21);
+            this.Chart_btn.Location = new System.Drawing.Point(315, 19);
             this.Chart_btn.Name = "Chart_btn";
-            this.Chart_btn.Size = new System.Drawing.Size(83, 23);
+            this.Chart_btn.Size = new System.Drawing.Size(63, 21);
             this.Chart_btn.TabIndex = 8;
-            this.Chart_btn.Text = "ChartProcess";
+            this.Chart_btn.Text = "Chart";
             this.Chart_btn.UseVisualStyleBackColor = true;
             this.Chart_btn.Click += new System.EventHandler(this.Chart_btn_Click);
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(9, 51);
+            this.progressBar1.Location = new System.Drawing.Point(9, 47);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(369, 23);
+            this.progressBar1.Size = new System.Drawing.Size(369, 21);
             this.progressBar1.TabIndex = 7;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 26);
+            this.label8.Location = new System.Drawing.Point(6, 24);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(45, 13);
+            this.label8.Size = new System.Drawing.Size(59, 12);
             this.label8.TabIndex = 6;
             this.label8.Text = "Iteration";
             // 
             // SimStart_btn
             // 
-            this.SimStart_btn.Location = new System.Drawing.Point(235, 21);
+            this.SimStart_btn.Location = new System.Drawing.Point(253, 19);
             this.SimStart_btn.Name = "SimStart_btn";
-            this.SimStart_btn.Size = new System.Drawing.Size(56, 23);
+            this.SimStart_btn.Size = new System.Drawing.Size(56, 21);
             this.SimStart_btn.TabIndex = 3;
             this.SimStart_btn.Text = "Start";
             this.SimStart_btn.UseVisualStyleBackColor = true;
@@ -755,7 +755,7 @@
             // 
             // Iteration_nud
             // 
-            this.Iteration_nud.Location = new System.Drawing.Point(57, 24);
+            this.Iteration_nud.Location = new System.Drawing.Point(57, 22);
             this.Iteration_nud.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -767,7 +767,7 @@
             0,
             0});
             this.Iteration_nud.Name = "Iteration_nud";
-            this.Iteration_nud.Size = new System.Drawing.Size(58, 20);
+            this.Iteration_nud.Size = new System.Drawing.Size(58, 21);
             this.Iteration_nud.TabIndex = 4;
             this.Iteration_nud.Value = new decimal(new int[] {
             1,
@@ -783,10 +783,10 @@
             this.Main_tab.Controls.Add(this.Main_tp);
             this.Main_tab.Controls.Add(this.AlgTest_tp);
             this.Main_tab.Controls.Add(this.SPSim_tp);
-            this.Main_tab.Location = new System.Drawing.Point(0, 27);
+            this.Main_tab.Location = new System.Drawing.Point(0, 25);
             this.Main_tab.Name = "Main_tab";
             this.Main_tab.SelectedIndex = 0;
-            this.Main_tab.Size = new System.Drawing.Size(755, 463);
+            this.Main_tab.Size = new System.Drawing.Size(755, 427);
             this.Main_tab.TabIndex = 29;
             // 
             // Main_tp
@@ -801,7 +801,7 @@
             this.Main_tp.Location = new System.Drawing.Point(4, 22);
             this.Main_tp.Name = "Main_tp";
             this.Main_tp.Padding = new System.Windows.Forms.Padding(3);
-            this.Main_tp.Size = new System.Drawing.Size(747, 437);
+            this.Main_tp.Size = new System.Drawing.Size(747, 401);
             this.Main_tp.TabIndex = 0;
             this.Main_tp.Text = "Main";
             this.Main_tp.UseVisualStyleBackColor = true;
@@ -813,19 +813,19 @@
             this.AlgTest_tp.Location = new System.Drawing.Point(4, 22);
             this.AlgTest_tp.Name = "AlgTest_tp";
             this.AlgTest_tp.Padding = new System.Windows.Forms.Padding(3);
-            this.AlgTest_tp.Size = new System.Drawing.Size(747, 437);
+            this.AlgTest_tp.Size = new System.Drawing.Size(747, 401);
             this.AlgTest_tp.TabIndex = 1;
             this.AlgTest_tp.Text = "Algorithm_Test";
             this.AlgTest_tp.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(380, 15);
+            this.textBox1.Location = new System.Drawing.Point(380, 14);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(335, 339);
+            this.textBox1.Size = new System.Drawing.Size(335, 313);
             this.textBox1.TabIndex = 12;
             // 
             // groupBox6
@@ -842,16 +842,16 @@
             this.groupBox6.Controls.Add(this.AlgName_cb);
             this.groupBox6.Location = new System.Drawing.Point(6, 6);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(368, 354);
+            this.groupBox6.Size = new System.Drawing.Size(368, 327);
             this.groupBox6.TabIndex = 0;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Algorithm Test";
             // 
             // ClearLog_btn
             // 
-            this.ClearLog_btn.Location = new System.Drawing.Point(271, 68);
+            this.ClearLog_btn.Location = new System.Drawing.Point(271, 63);
             this.ClearLog_btn.Name = "ClearLog_btn";
-            this.ClearLog_btn.Size = new System.Drawing.Size(61, 23);
+            this.ClearLog_btn.Size = new System.Drawing.Size(61, 21);
             this.ClearLog_btn.TabIndex = 11;
             this.ClearLog_btn.Text = "Clear Log";
             this.ClearLog_btn.UseVisualStyleBackColor = true;
@@ -859,16 +859,16 @@
             // 
             // AlgTest_progressbar
             // 
-            this.AlgTest_progressbar.Location = new System.Drawing.Point(11, 104);
+            this.AlgTest_progressbar.Location = new System.Drawing.Point(11, 96);
             this.AlgTest_progressbar.Name = "AlgTest_progressbar";
-            this.AlgTest_progressbar.Size = new System.Drawing.Size(351, 23);
+            this.AlgTest_progressbar.Size = new System.Drawing.Size(351, 21);
             this.AlgTest_progressbar.TabIndex = 10;
             // 
             // StartAlg_Test_btn
             // 
-            this.StartAlg_Test_btn.Location = new System.Drawing.Point(204, 68);
+            this.StartAlg_Test_btn.Location = new System.Drawing.Point(204, 63);
             this.StartAlg_Test_btn.Name = "StartAlg_Test_btn";
-            this.StartAlg_Test_btn.Size = new System.Drawing.Size(61, 23);
+            this.StartAlg_Test_btn.Size = new System.Drawing.Size(61, 21);
             this.StartAlg_Test_btn.TabIndex = 9;
             this.StartAlg_Test_btn.Text = "Start";
             this.StartAlg_Test_btn.UseVisualStyleBackColor = true;
@@ -877,17 +877,17 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 73);
+            this.label11.Location = new System.Drawing.Point(8, 67);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(58, 13);
+            this.label11.Size = new System.Drawing.Size(59, 12);
             this.label11.TabIndex = 8;
             this.label11.Text = "RunTimes:";
             // 
             // RunTimes_nud
             // 
-            this.RunTimes_nud.Location = new System.Drawing.Point(67, 71);
+            this.RunTimes_nud.Location = new System.Drawing.Point(67, 66);
             this.RunTimes_nud.Name = "RunTimes_nud";
-            this.RunTimes_nud.Size = new System.Drawing.Size(120, 20);
+            this.RunTimes_nud.Size = new System.Drawing.Size(120, 21);
             this.RunTimes_nud.TabIndex = 7;
             this.RunTimes_nud.Value = new decimal(new int[] {
             3,
@@ -898,17 +898,17 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 50);
+            this.label10.Location = new System.Drawing.Point(7, 46);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(52, 13);
+            this.label10.Size = new System.Drawing.Size(47, 12);
             this.label10.TabIndex = 6;
             this.label10.Text = "RandOD:";
             // 
             // RandOD_nud
             // 
-            this.RandOD_nud.Location = new System.Drawing.Point(66, 48);
+            this.RandOD_nud.Location = new System.Drawing.Point(66, 44);
             this.RandOD_nud.Name = "RandOD_nud";
-            this.RandOD_nud.Size = new System.Drawing.Size(120, 20);
+            this.RandOD_nud.Size = new System.Drawing.Size(120, 21);
             this.RandOD_nud.TabIndex = 5;
             this.RandOD_nud.Value = new decimal(new int[] {
             1,
@@ -918,20 +918,20 @@
             // 
             // AlgTestLog_tb
             // 
-            this.AlgTestLog_tb.Location = new System.Drawing.Point(10, 133);
+            this.AlgTestLog_tb.Location = new System.Drawing.Point(10, 123);
             this.AlgTestLog_tb.Multiline = true;
             this.AlgTestLog_tb.Name = "AlgTestLog_tb";
             this.AlgTestLog_tb.ReadOnly = true;
             this.AlgTestLog_tb.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.AlgTestLog_tb.Size = new System.Drawing.Size(352, 215);
+            this.AlgTestLog_tb.Size = new System.Drawing.Size(352, 199);
             this.AlgTestLog_tb.TabIndex = 4;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 22);
+            this.label9.Location = new System.Drawing.Point(7, 20);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 13);
+            this.label9.Size = new System.Drawing.Size(65, 12);
             this.label9.TabIndex = 3;
             this.label9.Text = "Algorithm:";
             // 
@@ -948,9 +948,9 @@
             "SFA_twist",
             "SFA_twistheu",
             "All"});
-            this.AlgName_cb.Location = new System.Drawing.Point(66, 20);
+            this.AlgName_cb.Location = new System.Drawing.Point(66, 18);
             this.AlgName_cb.Name = "AlgName_cb";
-            this.AlgName_cb.Size = new System.Drawing.Size(121, 21);
+            this.AlgName_cb.Size = new System.Drawing.Size(121, 20);
             this.AlgName_cb.TabIndex = 0;
             // 
             // SPSim_tp
@@ -966,16 +966,16 @@
             this.SPSim_tp.Location = new System.Drawing.Point(4, 22);
             this.SPSim_tp.Name = "SPSim_tp";
             this.SPSim_tp.Padding = new System.Windows.Forms.Padding(3);
-            this.SPSim_tp.Size = new System.Drawing.Size(747, 437);
+            this.SPSim_tp.Size = new System.Drawing.Size(747, 401);
             this.SPSim_tp.TabIndex = 2;
             this.SPSim_tp.Text = "SP_Simulation";
             this.SPSim_tp.UseVisualStyleBackColor = true;
             // 
             // SP_Sim_Plot_btn
             // 
-            this.SP_Sim_Plot_btn.Location = new System.Drawing.Point(295, 47);
+            this.SP_Sim_Plot_btn.Location = new System.Drawing.Point(295, 43);
             this.SP_Sim_Plot_btn.Name = "SP_Sim_Plot_btn";
-            this.SP_Sim_Plot_btn.Size = new System.Drawing.Size(75, 23);
+            this.SP_Sim_Plot_btn.Size = new System.Drawing.Size(75, 21);
             this.SP_Sim_Plot_btn.TabIndex = 15;
             this.SP_Sim_Plot_btn.Text = "Plot";
             this.SP_Sim_Plot_btn.UseVisualStyleBackColor = true;
@@ -983,17 +983,17 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(20, 120);
+            this.pictureBox1.Location = new System.Drawing.Point(20, 111);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(719, 311);
+            this.pictureBox1.Size = new System.Drawing.Size(719, 287);
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
             // Start2_btn
             // 
-            this.Start2_btn.Location = new System.Drawing.Point(214, 47);
+            this.Start2_btn.Location = new System.Drawing.Point(214, 43);
             this.Start2_btn.Name = "Start2_btn";
-            this.Start2_btn.Size = new System.Drawing.Size(75, 23);
+            this.Start2_btn.Size = new System.Drawing.Size(75, 21);
             this.Start2_btn.TabIndex = 13;
             this.Start2_btn.Text = "Start";
             this.Start2_btn.UseVisualStyleBackColor = true;
@@ -1002,22 +1002,22 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(17, 52);
+            this.label12.Location = new System.Drawing.Point(17, 48);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(58, 13);
+            this.label12.Size = new System.Drawing.Size(59, 12);
             this.label12.TabIndex = 12;
             this.label12.Text = "RunTimes:";
             // 
             // RunTimes2_nud
             // 
-            this.RunTimes2_nud.Location = new System.Drawing.Point(76, 50);
+            this.RunTimes2_nud.Location = new System.Drawing.Point(76, 46);
             this.RunTimes2_nud.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
             this.RunTimes2_nud.Name = "RunTimes2_nud";
-            this.RunTimes2_nud.Size = new System.Drawing.Size(120, 20);
+            this.RunTimes2_nud.Size = new System.Drawing.Size(120, 21);
             this.RunTimes2_nud.TabIndex = 11;
             this.RunTimes2_nud.Value = new decimal(new int[] {
             100,
@@ -1028,17 +1028,17 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(16, 27);
+            this.label13.Location = new System.Drawing.Point(16, 25);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(52, 13);
+            this.label13.Size = new System.Drawing.Size(47, 12);
             this.label13.TabIndex = 10;
             this.label13.Text = "RandOD:";
             // 
             // RandOD2_nud
             // 
-            this.RandOD2_nud.Location = new System.Drawing.Point(75, 27);
+            this.RandOD2_nud.Location = new System.Drawing.Point(75, 25);
             this.RandOD2_nud.Name = "RandOD2_nud";
-            this.RandOD2_nud.Size = new System.Drawing.Size(120, 20);
+            this.RandOD2_nud.Size = new System.Drawing.Size(120, 21);
             this.RandOD2_nud.TabIndex = 9;
             this.RandOD2_nud.Value = new decimal(new int[] {
             1,
@@ -1048,18 +1048,18 @@
             // 
             // SPSim_progressBar
             // 
-            this.SPSim_progressBar.Location = new System.Drawing.Point(19, 76);
+            this.SPSim_progressBar.Location = new System.Drawing.Point(19, 70);
             this.SPSim_progressBar.Name = "SPSim_progressBar";
-            this.SPSim_progressBar.Size = new System.Drawing.Size(720, 23);
+            this.SPSim_progressBar.Size = new System.Drawing.Size(720, 21);
             this.SPSim_progressBar.TabIndex = 0;
             // 
             // GeoHyperStar_MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(755, 515);
+            this.ClientSize = new System.Drawing.Size(755, 475);
             this.Controls.Add(this.Main_tab);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);

@@ -10,7 +10,7 @@ using System.Configuration;
 namespace AppConfiguration
     
 {
-    //[TestClass]
+    [TestClass]
     public class UnitTest1
     {      
         public TestContext TestContext { get; set; }
@@ -20,7 +20,7 @@ namespace AppConfiguration
             Console.WriteLine("main");
         }
 
-        //[TestMethod]
+        [TestMethod]
         public void TestMethod1()
         {
             TestContext.WriteLine("afaf");
@@ -29,13 +29,14 @@ namespace AppConfiguration
             Trace.WriteLine("after");
         }
 
-        //[TestMethod]
+        [TestMethod]
         public void TestMethod2()
         {
             TestContext.WriteLine("Test2");
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["tokyo"].ToString());
             if (conn.State == ConnectionState.Closed) conn.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("select * from road where gid<10");
+            NpgsqlCommand cmd = new NpgsqlCommand("select * from "+ ConfigurationManager.AppSettings.Get("road").ToString()+" where gid<10",conn);
+        
             NpgsqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -44,6 +45,15 @@ namespace AppConfiguration
             dr.Close();
             conn.Close();
  
+        }
+        [TestMethod]
+        public void TestMethod3()
+        {
+            string s1="select * from "+ ConfigurationManager.AppSettings.Get("road").ToString()+" where gid<10";
+            
+            string s2 = "select * from   where gid<10";
+            Assert.AreEqual(s1, s2);
+            Assert.AreEqual(ConfigurationManager.AppSettings.Get("road").ToString(), "road");//"select * from" + 
         }
         
     }
