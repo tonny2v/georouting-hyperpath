@@ -28,7 +28,7 @@ namespace SharpMapUITest
             InitializeComponent();
         }
 
-        private static string database = "postgis";
+        private static string database = "Tokyo_533935";
         //Default connection
         public static string ConnStr = "Server=localhost"
         + ";DataBase=" + database
@@ -36,6 +36,9 @@ namespace SharpMapUITest
         + ";Userid= postgres"
         + ";password=password"
         + ";Protocol=3;SSL=false;Pooling=true;MinPoolSize=1;MaxPoolSize=20;EnCoding=UNICODE;Timeout=15;SslMode=Disable";
+
+        public static int origin;
+        public static int destination;
 
         SharpMap.Layers.LabelLayer verticesAsLabel;//node label style
         SharpMap.Layers.LabelLayer roadlayASLabel;//link label style
@@ -90,6 +93,7 @@ namespace SharpMapUITest
                     vertices_tmp.Style.Symbol = SharpMap.Styles.VectorStyle.DefaultSymbol;
                     //vertices_tmp.Style.Symbol = Image.FromFile("..\\..\\Node.bmp");
                     vertices_tmp.Style.SymbolScale = (float)0.32;
+                    
                     //不消除锯齿
                     vertices_tmp.SmoothingMode = SmoothingMode.None;
                     myMap.Layers.Add(vertices_tmp);
@@ -151,7 +155,7 @@ namespace SharpMapUITest
                     //firstStyle.EnableOutline = true;
                     //lastStyle.Outline = new Pen(Color.Black);
                     //lastStyle.EnableOutline = true;
-                    SharpMap.Rendering.Thematics.GradientTheme Theme = new SharpMap.Rendering.Thematics.GradientTheme("choice_possibility", 0, 1, firstStyle, lastStyle);
+                    SharpMap.Rendering.Thematics.GradientTheme Theme = new SharpMap.Rendering.Thematics.GradientTheme("p_tmp", 0, 1, firstStyle, lastStyle);
                     //Theme.FillColorBlend = SharpMap.Rendering.Thematics.ColorBlend.ThreeColors(Color.Yellow, Color.SkyBlue, Color.HotPink);
                     hyperpath.Theme = Theme;
                 }
@@ -222,8 +226,39 @@ namespace SharpMapUITest
 
             SelectedLayer_tsl.Text = "Current Layer: "+Layers_clb.SelectedItem.ToString();
             //mapImage1.Cursor = mic;
-            
             mapImage1.Refresh();
+            //add origin and destination layers
+            SharpMap.Layers.VectorLayer oLayer = new VectorLayer("origin");
+            VectorLayer dLayer = new VectorLayer("destination");
+            SharpMap.Layers.VectorLayer query_lyr;
+            query_lyr = this.mapImage1.Map.GetLayerByName("Vertices_tmp") as SharpMap.Layers.VectorLayer;
+            if (query_lyr == null)
+            {
+                throw (new ApplicationException("An attempt was made to read from a closed datasource"));
+            }
+            if (!query_lyr.DataSource.IsOpen) query_lyr.DataSource.Open();
+
+            //get all the features in the query_lyr. 
+            SharpMap.Data.FeatureDataSet ds = new SharpMap.Data.FeatureDataSet();
+            query_lyr.DataSource.ExecuteIntersectionQuery(query_lyr.Envelope, ds);
+
+            query_lyr.DataSource.Close();
+            if (ds == null) return;
+
+            DataRow[] query = ds.Tables[0].Select("", "id");
+            
+            FeatureDataRow O_fdr = query.ElementAt(origin - 1) as FeatureDataRow;
+            FeatureDataRow D_fdr = query.ElementAt(destination - 1) as FeatureDataRow;
+            SharpMap.Geometries.Point O2Draw = (O_fdr.Geometry as SharpMap.Geometries.Point);
+            SharpMap.Geometries.Point D2Draw = (D_fdr.Geometry as SharpMap.Geometries.Point);
+            PointF O_pointf = SharpMap.Utilities.Transform.WorldtoMap(O2Draw, mapImage1.Map);
+            PointF D_pointf = SharpMap.Utilities.Transform.WorldtoMap(D2Draw, mapImage1.Map);
+            g.FillRectangle(new SolidBrush(Color.Red),O_pointf.X-6,O_pointf.Y-6,12,12);
+            g.FillRectangle(new SolidBrush(Color.Blue), D_pointf.X-6, D_pointf.Y-6, 12, 12);
+
+        
+            //RenderElementByID(origin, Color.Red, "Point", true, g);
+            //RenderElementByID(destination, Color.Blue, "Point", true, g);
         }
 
         private void mapImage1_SizeChanged(object sender, EventArgs e)

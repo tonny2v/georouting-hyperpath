@@ -99,7 +99,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(186, 352);
+            this.groupBox1.Size = new System.Drawing.Size(186, 325);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Layers";
@@ -111,15 +111,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Layers_clb.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Layers_clb.FormattingEnabled = true;
-            this.Layers_clb.Location = new System.Drawing.Point(6, 27);
+            this.Layers_clb.Location = new System.Drawing.Point(6, 25);
             this.Layers_clb.Name = "Layers_clb";
-            this.Layers_clb.Size = new System.Drawing.Size(174, 304);
+            this.Layers_clb.Size = new System.Drawing.Size(174, 284);
             this.Layers_clb.TabIndex = 4;
             this.Layers_clb.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Layers_clb_MouseDown);
             // 
             // toolStrip1
             // 
-            this.toolStrip1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.Control;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ReSet_btn,
             this.toolStripSeparator2,
@@ -150,7 +150,7 @@
             this.ReSet_btn.Image = ((System.Drawing.Image)(resources.GetObject("ReSet_btn.Image")));
             this.ReSet_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ReSet_btn.Name = "ReSet_btn";
-            this.ReSet_btn.Size = new System.Drawing.Size(56, 22);
+            this.ReSet_btn.Size = new System.Drawing.Size(55, 22);
             this.ReSet_btn.Text = "&ReSet";
             this.ReSet_btn.Click += new System.EventHandler(this.Refresth_btn_Click);
             // 
@@ -164,7 +164,7 @@
             this.RenderNode_btn.Image = ((System.Drawing.Image)(resources.GetObject("RenderNode_btn.Image")));
             this.RenderNode_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.RenderNode_btn.Name = "RenderNode_btn";
-            this.RenderNode_btn.Size = new System.Drawing.Size(87, 22);
+            this.RenderNode_btn.Size = new System.Drawing.Size(85, 22);
             this.RenderNode_btn.Text = "Render&Node";
             this.RenderNode_btn.Click += new System.EventHandler(this.ShowNodeLabel_btn_Click);
             // 
@@ -173,7 +173,7 @@
             this.RenderLink_btn.Image = ((System.Drawing.Image)(resources.GetObject("RenderLink_btn.Image")));
             this.RenderLink_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.RenderLink_btn.Name = "RenderLink_btn";
-            this.RenderLink_btn.Size = new System.Drawing.Size(80, 22);
+            this.RenderLink_btn.Size = new System.Drawing.Size(85, 22);
             this.RenderLink_btn.Text = "Render&Link";
             this.RenderLink_btn.Click += new System.EventHandler(this.ShowLinkLabel_btn_Click);
             // 
@@ -187,7 +187,7 @@
             this.ToExtent_btn.Image = ((System.Drawing.Image)(resources.GetObject("ToExtent_btn.Image")));
             this.ToExtent_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ToExtent_btn.Name = "ToExtent_btn";
-            this.ToExtent_btn.Size = new System.Drawing.Size(71, 22);
+            this.ToExtent_btn.Size = new System.Drawing.Size(73, 22);
             this.ToExtent_btn.Text = "To&Extent";
             this.ToExtent_btn.Click += new System.EventHandler(this.ZoomToExtent_Click);
             // 
@@ -196,7 +196,7 @@
             this.ZoomIn_btn.Image = ((System.Drawing.Image)(resources.GetObject("ZoomIn_btn.Image")));
             this.ZoomIn_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ZoomIn_btn.Name = "ZoomIn_btn";
-            this.ZoomIn_btn.Size = new System.Drawing.Size(63, 22);
+            this.ZoomIn_btn.Size = new System.Drawing.Size(61, 22);
             this.ZoomIn_btn.Text = "Zoom&In";
             this.ZoomIn_btn.Click += new System.EventHandler(this.ZoomIn_btn_Click);
             // 
@@ -205,7 +205,7 @@
             this.ZoomOut_btn.Image = ((System.Drawing.Image)(resources.GetObject("ZoomOut_btn.Image")));
             this.ZoomOut_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ZoomOut_btn.Name = "ZoomOut_btn";
-            this.ZoomOut_btn.Size = new System.Drawing.Size(71, 22);
+            this.ZoomOut_btn.Size = new System.Drawing.Size(67, 22);
             this.ZoomOut_btn.Text = "Zoom&Out";
             this.ZoomOut_btn.Click += new System.EventHandler(this.ZoomOut_btn_Click);
             // 
@@ -214,7 +214,7 @@
             this.Pan_btn.Image = ((System.Drawing.Image)(resources.GetObject("Pan_btn.Image")));
             this.Pan_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Pan_btn.Name = "Pan_btn";
-            this.Pan_btn.Size = new System.Drawing.Size(45, 22);
+            this.Pan_btn.Size = new System.Drawing.Size(43, 22);
             this.Pan_btn.Text = "&Pan";
             this.Pan_btn.Click += new System.EventHandler(this.Pan_btn_Click);
             // 
@@ -223,7 +223,7 @@
             this.Query_btn.Image = ((System.Drawing.Image)(resources.GetObject("Query_btn.Image")));
             this.Query_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Query_btn.Name = "Query_btn";
-            this.Query_btn.Size = new System.Drawing.Size(57, 22);
+            this.Query_btn.Size = new System.Drawing.Size(55, 22);
             this.Query_btn.Text = "&Query";
             this.Query_btn.Click += new System.EventHandler(this.Query_btn_Click);
             // 
@@ -259,7 +259,7 @@
             this.FindElement_btn.Image = ((System.Drawing.Image)(resources.GetObject("FindElement_btn.Image")));
             this.FindElement_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.FindElement_btn.Name = "FindElement_btn";
-            this.FindElement_btn.Size = new System.Drawing.Size(47, 22);
+            this.FindElement_btn.Size = new System.Drawing.Size(49, 22);
             this.FindElement_btn.Text = "&Find";
             this.FindElement_btn.Click += new System.EventHandler(this.FindGeometry_btn_Click_1);
             // 
@@ -272,7 +272,7 @@
             this.TestTools.Image = ((System.Drawing.Image)(resources.GetObject("TestTools.Image")));
             this.TestTools.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.TestTools.Name = "TestTools";
-            this.TestTools.Size = new System.Drawing.Size(61, 22);
+            this.TestTools.Size = new System.Drawing.Size(64, 22);
             this.TestTools.Text = "Tools";
             // 
             // BufferDistanceToolStripMenuItem
@@ -331,7 +331,7 @@
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.Location = new System.Drawing.Point(0, 28);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 26);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -348,8 +348,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
-            this.splitContainer1.Size = new System.Drawing.Size(1073, 410);
-            this.splitContainer1.SplitterDistance = 358;
+            this.splitContainer1.Size = new System.Drawing.Size(1073, 378);
+            this.splitContainer1.SplitterDistance = 330;
             this.splitContainer1.TabIndex = 11;
             // 
             // mapImage1
@@ -362,11 +362,11 @@
             this.mapImage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mapImage1.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.mapImage1.FineZoomFactor = 10D;
-            this.mapImage1.Location = new System.Drawing.Point(195, 30);
+            this.mapImage1.Location = new System.Drawing.Point(195, 28);
             this.mapImage1.Name = "mapImage1";
             this.mapImage1.PanOnClick = false;
             this.mapImage1.QueryLayerIndex = 0;
-            this.mapImage1.Size = new System.Drawing.Size(847, 304);
+            this.mapImage1.Size = new System.Drawing.Size(847, 300);
             this.mapImage1.TabIndex = 0;
             this.mapImage1.TabStop = false;
             this.mapImage1.WheelZoomMagnitude = 2D;
@@ -377,7 +377,7 @@
             // 
             // Animation_trackbar
             // 
-            this.Animation_trackbar.Location = new System.Drawing.Point(387, 8);
+            this.Animation_trackbar.Location = new System.Drawing.Point(387, 7);
             this.Animation_trackbar.Name = "Animation_trackbar";
             this.Animation_trackbar.Size = new System.Drawing.Size(566, 42);
             this.Animation_trackbar.TabIndex = 11;
@@ -385,9 +385,9 @@
             // Stop_btn
             // 
             this.Stop_btn.Image = ((System.Drawing.Image)(resources.GetObject("Stop_btn.Image")));
-            this.Stop_btn.Location = new System.Drawing.Point(344, 8);
+            this.Stop_btn.Location = new System.Drawing.Point(344, 7);
             this.Stop_btn.Name = "Stop_btn";
-            this.Stop_btn.Size = new System.Drawing.Size(20, 20);
+            this.Stop_btn.Size = new System.Drawing.Size(20, 18);
             this.Stop_btn.TabIndex = 10;
             this.Stop_btn.UseVisualStyleBackColor = true;
             this.Stop_btn.Click += new System.EventHandler(this.Stop_btn_Click);
@@ -395,9 +395,9 @@
             // Pause_btn
             // 
             this.Pause_btn.Image = ((System.Drawing.Image)(resources.GetObject("Pause_btn.Image")));
-            this.Pause_btn.Location = new System.Drawing.Point(313, 8);
+            this.Pause_btn.Location = new System.Drawing.Point(313, 7);
             this.Pause_btn.Name = "Pause_btn";
-            this.Pause_btn.Size = new System.Drawing.Size(20, 20);
+            this.Pause_btn.Size = new System.Drawing.Size(20, 18);
             this.Pause_btn.TabIndex = 9;
             this.Pause_btn.UseVisualStyleBackColor = true;
             this.Pause_btn.Click += new System.EventHandler(this.Pause_btn_Click);
@@ -405,9 +405,9 @@
             // Start_btn
             // 
             this.Start_btn.Image = ((System.Drawing.Image)(resources.GetObject("Start_btn.Image")));
-            this.Start_btn.Location = new System.Drawing.Point(282, 7);
+            this.Start_btn.Location = new System.Drawing.Point(282, 6);
             this.Start_btn.Name = "Start_btn";
-            this.Start_btn.Size = new System.Drawing.Size(20, 20);
+            this.Start_btn.Size = new System.Drawing.Size(20, 18);
             this.Start_btn.TabIndex = 8;
             this.Start_btn.UseVisualStyleBackColor = true;
             this.Start_btn.Click += new System.EventHandler(this.Start_btn_Click);
@@ -415,9 +415,9 @@
             // MapInfomation_label
             // 
             this.MapInfomation_label.AutoSize = true;
-            this.MapInfomation_label.Location = new System.Drawing.Point(195, 11);
+            this.MapInfomation_label.Location = new System.Drawing.Point(195, 10);
             this.MapInfomation_label.Name = "MapInfomation_label";
-            this.MapInfomation_label.Size = new System.Drawing.Size(65, 13);
+            this.MapInfomation_label.Size = new System.Drawing.Size(71, 12);
             this.MapInfomation_label.TabIndex = 7;
             this.MapInfomation_label.Text = "Map Display";
             // 
@@ -430,7 +430,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1039, 42);
+            this.dataGridView1.Size = new System.Drawing.Size(1039, 39);
             this.dataGridView1.TabIndex = 0;
             // 
             // mapContext
@@ -470,7 +470,7 @@
             this.SelectedLayer_tsl,
             this.Status_tsl,
             this.SelectedItem_tsl});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 439);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 404);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1073, 22);
             this.statusStrip1.TabIndex = 12;
@@ -480,28 +480,28 @@
             // 
             this.CurrentDB_tsl.Image = ((System.Drawing.Image)(resources.GetObject("CurrentDB_tsl.Image")));
             this.CurrentDB_tsl.Name = "CurrentDB_tsl";
-            this.CurrentDB_tsl.Size = new System.Drawing.Size(109, 17);
+            this.CurrentDB_tsl.Size = new System.Drawing.Size(117, 17);
             this.CurrentDB_tsl.Text = "Current DataBase";
             // 
             // SelectedLayer_tsl
             // 
             this.SelectedLayer_tsl.Image = ((System.Drawing.Image)(resources.GetObject("SelectedLayer_tsl.Image")));
             this.SelectedLayer_tsl.Name = "SelectedLayer_tsl";
-            this.SelectedLayer_tsl.Size = new System.Drawing.Size(90, 17);
+            this.SelectedLayer_tsl.Size = new System.Drawing.Size(99, 17);
             this.SelectedLayer_tsl.Text = "Current Layer";
             // 
             // Status_tsl
             // 
             this.Status_tsl.Image = ((System.Drawing.Image)(resources.GetObject("Status_tsl.Image")));
             this.Status_tsl.Name = "Status_tsl";
-            this.Status_tsl.Size = new System.Drawing.Size(54, 17);
+            this.Status_tsl.Size = new System.Drawing.Size(57, 17);
             this.Status_tsl.Text = "Status";
             // 
             // SelectedItem_tsl
             // 
             this.SelectedItem_tsl.Image = ((System.Drawing.Image)(resources.GetObject("SelectedItem_tsl.Image")));
             this.SelectedItem_tsl.Name = "SelectedItem_tsl";
-            this.SelectedItem_tsl.Size = new System.Drawing.Size(114, 17);
+            this.SelectedItem_tsl.Size = new System.Drawing.Size(123, 17);
             this.SelectedItem_tsl.Text = "Selected Geometry";
             // 
             // toolStripSeparator3
@@ -537,9 +537,9 @@
             // 
             // MapDisplay
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1073, 461);
+            this.ClientSize = new System.Drawing.Size(1073, 426);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStrip1);

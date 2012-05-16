@@ -25,7 +25,8 @@ namespace GeoHyperstar.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Server=localhost;DataBase=postgis2;Port=5432;Userid=postgres;password=password")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=192.168.11.12;DataBase=postgis2;Port=5432;Userid=postgres;password=passwor" +
+            "d")]
         public string Mesh533935 {
             get {
                 return ((string)(this["Mesh533935"]));
@@ -37,7 +38,8 @@ namespace GeoHyperstar.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Server=localhost;DataBase=postgis3;Port=5432;Userid=postgres;password=password")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=192.168.11.12;DataBase=postgis3;Port=5432;Userid=postgres;password=passwor" +
+            "d")]
         public string USNetwork {
             get {
                 return ((string)(this["USNetwork"]));
@@ -49,7 +51,8 @@ namespace GeoHyperstar.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Server=localhost;DataBase=postgis1;Port=5432;Userid=postgres;password=password")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=192.168.11.12;DataBase=postgis1;Port=5432;Userid=postgres;password=passwor" +
+            "d")]
         public string TestNetwork {
             get {
                 return ((string)(this["TestNetwork"]));
@@ -61,7 +64,8 @@ namespace GeoHyperstar.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Server=localhost;DataBase=postgis1;Port=5432;Userid=postgres;password=password")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Server=192.168.11.12;DataBase=postgis1;Port=5432;Userid=postgres;password=passwor" +
+            "d")]
         public string DefaultCon {
             get {
                 return ((string)(this["DefaultCon"]));

@@ -16,7 +16,7 @@ namespace confTest
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["tokyo"].ToString());
       
             if (conn.State == ConnectionState.Closed) conn.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand("select * from road where gid<10",conn);
+            NpgsqlCommand cmd = new NpgsqlCommand("select * from "+ ConfigurationManager.AppSettings.Get("road").ToString()+" where gid<10",conn);
             NpgsqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
