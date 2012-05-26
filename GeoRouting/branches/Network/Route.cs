@@ -9,7 +9,7 @@ namespace NetworkLib
     [Serializable]
     public class Route
     {
-        List<Link> Links { get; set; }
+        public List<Link> Links { get; set; }
 
         public double Reliability { get; set; }
         
@@ -17,6 +17,8 @@ namespace NetworkLib
        
         public Route(Link [] _links) 
         {
+            Links = new List<Link>();
+            Reliability = -1;
             Links.AddRange(_links);
         }
 
@@ -26,9 +28,9 @@ namespace NetworkLib
             Links.Add(x);
         }
 
-        public List<Link> ToLinks()
+        public Link[] ToArray()
         {
-            return Links;
+            return Links.ToArray();
         }
         /// <summary>
         /// 返回以数字集表示的路径,该路径ID为母网络中的ID
@@ -62,7 +64,7 @@ namespace NetworkLib
             StringBuilder s = new StringBuilder();
             for (int i=0;i<Links.Count; i++)
             {
-                s.Append(Links[i].ToString());
+                s.Append(Links[i].ToString()+",");
                 if (i!=Links.Count-1)
                     s.Append("\n");
             }

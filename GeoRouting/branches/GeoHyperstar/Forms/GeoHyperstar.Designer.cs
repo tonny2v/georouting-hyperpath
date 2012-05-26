@@ -107,11 +107,11 @@
             this.RandOD2_nud = new System.Windows.Forms.NumericUpDown();
             this.SPSim_progressBar = new System.Windows.Forms.ProgressBar();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.origin_INSTR_tb = new System.Windows.Forms.TextBox();
-            this.destination_INSTR_tb = new System.Windows.Forms.TextBox();
             this.INSTR_start = new System.Windows.Forms.Button();
+            this.destination_INSTR_tb = new System.Windows.Forms.TextBox();
+            this.origin_INSTR_tb = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Origin_nud)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Destination_nud)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -351,7 +351,7 @@
             this.LocalIncludeEt_ckb.CheckState = System.Windows.Forms.CheckState.Checked;
             this.LocalIncludeEt_ckb.Location = new System.Drawing.Point(200, 15);
             this.LocalIncludeEt_ckb.Name = "LocalIncludeEt_ckb";
-            this.LocalIncludeEt_ckb.Size = new System.Drawing.Size(109, 18);
+            this.LocalIncludeEt_ckb.Size = new System.Drawing.Size(109, 17);
             this.LocalIncludeEt_ckb.TabIndex = 30;
             this.LocalIncludeEt_ckb.Text = "Local Include E(t)";
             this.LocalIncludeEt_ckb.UseVisualStyleBackColor = true;
@@ -363,7 +363,7 @@
             this.GloablOnPOset_ckb.CheckState = System.Windows.Forms.CheckState.Checked;
             this.GloablOnPOset_ckb.Location = new System.Drawing.Point(200, 42);
             this.GloablOnPOset_ckb.Name = "GloablOnPOset_ckb";
-            this.GloablOnPOset_ckb.Size = new System.Drawing.Size(78, 18);
+            this.GloablOnPOset_ckb.Size = new System.Drawing.Size(78, 17);
             this.GloablOnPOset_ckb.TabIndex = 27;
             this.GloablOnPOset_ckb.Text = "On PO Net";
             this.GloablOnPOset_ckb.UseVisualStyleBackColor = true;
@@ -373,7 +373,7 @@
             this.LocalSearch_rb.AutoSize = true;
             this.LocalSearch_rb.Location = new System.Drawing.Point(106, 14);
             this.LocalSearch_rb.Name = "LocalSearch_rb";
-            this.LocalSearch_rb.Size = new System.Drawing.Size(88, 18);
+            this.LocalSearch_rb.Size = new System.Drawing.Size(88, 17);
             this.LocalSearch_rb.TabIndex = 24;
             this.LocalSearch_rb.Text = "Local Search";
             this.LocalSearch_rb.UseVisualStyleBackColor = true;
@@ -384,7 +384,7 @@
             this.GlobalSearch_rb.Checked = true;
             this.GlobalSearch_rb.Location = new System.Drawing.Point(106, 41);
             this.GlobalSearch_rb.Name = "GlobalSearch_rb";
-            this.GlobalSearch_rb.Size = new System.Drawing.Size(92, 18);
+            this.GlobalSearch_rb.Size = new System.Drawing.Size(92, 17);
             this.GlobalSearch_rb.TabIndex = 25;
             this.GlobalSearch_rb.TabStop = true;
             this.GlobalSearch_rb.Text = "Global Search";
@@ -446,7 +446,7 @@
             this.SaveToDatabase_rb.AutoSize = true;
             this.SaveToDatabase_rb.Location = new System.Drawing.Point(138, 138);
             this.SaveToDatabase_rb.Name = "SaveToDatabase_rb";
-            this.SaveToDatabase_rb.Size = new System.Drawing.Size(87, 18);
+            this.SaveToDatabase_rb.Size = new System.Drawing.Size(87, 17);
             this.SaveToDatabase_rb.TabIndex = 17;
             this.SaveToDatabase_rb.TabStop = true;
             this.SaveToDatabase_rb.Text = "To Database";
@@ -466,7 +466,7 @@
             this.SaveToFile_rb.AutoSize = true;
             this.SaveToFile_rb.Location = new System.Drawing.Point(75, 138);
             this.SaveToFile_rb.Name = "SaveToFile_rb";
-            this.SaveToFile_rb.Size = new System.Drawing.Size(57, 18);
+            this.SaveToFile_rb.Size = new System.Drawing.Size(57, 17);
             this.SaveToFile_rb.TabIndex = 16;
             this.SaveToFile_rb.TabStop = true;
             this.SaveToFile_rb.Text = "To File";
@@ -707,7 +707,7 @@
             this.SimLocalIncludeEt_ckb.CheckState = System.Windows.Forms.CheckState.Checked;
             this.SimLocalIncludeEt_ckb.Location = new System.Drawing.Point(121, 33);
             this.SimLocalIncludeEt_ckb.Name = "SimLocalIncludeEt_ckb";
-            this.SimLocalIncludeEt_ckb.Size = new System.Drawing.Size(109, 18);
+            this.SimLocalIncludeEt_ckb.Size = new System.Drawing.Size(109, 17);
             this.SimLocalIncludeEt_ckb.TabIndex = 29;
             this.SimLocalIncludeEt_ckb.Text = "Local Include E(t)";
             this.SimLocalIncludeEt_ckb.UseVisualStyleBackColor = true;
@@ -719,7 +719,7 @@
             this.SimGlobalOnPO_ckb.CheckState = System.Windows.Forms.CheckState.Checked;
             this.SimGlobalOnPO_ckb.Location = new System.Drawing.Point(121, 10);
             this.SimGlobalOnPO_ckb.Name = "SimGlobalOnPO_ckb";
-            this.SimGlobalOnPO_ckb.Size = new System.Drawing.Size(111, 18);
+            this.SimGlobalOnPO_ckb.Size = new System.Drawing.Size(111, 17);
             this.SimGlobalOnPO_ckb.TabIndex = 28;
             this.SimGlobalOnPO_ckb.Text = "Global On PO Net";
             this.SimGlobalOnPO_ckb.UseVisualStyleBackColor = true;
@@ -1076,14 +1076,31 @@
             this.tabPage1.Text = "INSTR(Reliable route)";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // label14
+            // INSTR_start
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(20, 30);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(32, 13);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "origin";
+            this.INSTR_start.Location = new System.Drawing.Point(213, 64);
+            this.INSTR_start.Name = "INSTR_start";
+            this.INSTR_start.Size = new System.Drawing.Size(75, 23);
+            this.INSTR_start.TabIndex = 14;
+            this.INSTR_start.Text = "Start";
+            this.INSTR_start.UseVisualStyleBackColor = true;
+            this.INSTR_start.Click += new System.EventHandler(this.INSTR_start_Click);
+            // 
+            // destination_INSTR_tb
+            // 
+            this.destination_INSTR_tb.Location = new System.Drawing.Point(78, 66);
+            this.destination_INSTR_tb.Name = "destination_INSTR_tb";
+            this.destination_INSTR_tb.Size = new System.Drawing.Size(100, 20);
+            this.destination_INSTR_tb.TabIndex = 3;
+            this.destination_INSTR_tb.Text = "2306";
+            // 
+            // origin_INSTR_tb
+            // 
+            this.origin_INSTR_tb.Location = new System.Drawing.Point(78, 30);
+            this.origin_INSTR_tb.Name = "origin_INSTR_tb";
+            this.origin_INSTR_tb.Size = new System.Drawing.Size(100, 20);
+            this.origin_INSTR_tb.TabIndex = 2;
+            this.origin_INSTR_tb.Text = "2500";
             // 
             // label15
             // 
@@ -1094,29 +1111,14 @@
             this.label15.TabIndex = 1;
             this.label15.Text = "destination";
             // 
-            // origin_INSTR_tb
+            // label14
             // 
-            this.origin_INSTR_tb.Location = new System.Drawing.Point(78, 30);
-            this.origin_INSTR_tb.Name = "origin_INSTR_tb";
-            this.origin_INSTR_tb.Size = new System.Drawing.Size(100, 20);
-            this.origin_INSTR_tb.TabIndex = 2;
-            // 
-            // destination_INSTR_tb
-            // 
-            this.destination_INSTR_tb.Location = new System.Drawing.Point(78, 66);
-            this.destination_INSTR_tb.Name = "destination_INSTR_tb";
-            this.destination_INSTR_tb.Size = new System.Drawing.Size(100, 20);
-            this.destination_INSTR_tb.TabIndex = 3;
-            // 
-            // INSTR_start
-            // 
-            this.INSTR_start.Location = new System.Drawing.Point(213, 64);
-            this.INSTR_start.Name = "INSTR_start";
-            this.INSTR_start.Size = new System.Drawing.Size(75, 23);
-            this.INSTR_start.TabIndex = 14;
-            this.INSTR_start.Text = "Start";
-            this.INSTR_start.UseVisualStyleBackColor = true;
-            this.INSTR_start.Click += new System.EventHandler(this.INSTR_start_Click);
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(20, 30);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(32, 13);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "origin";
             // 
             // GeoHyperStar_MainForm
             // 
