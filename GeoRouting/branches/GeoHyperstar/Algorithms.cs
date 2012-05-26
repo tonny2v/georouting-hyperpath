@@ -8,6 +8,7 @@ using System.Diagnostics;
 
 using NetworkLib.Element;
 using NetworkLib.FibHeap;
+using NetworkLib;
 
 namespace GeoHyperstar.Forms
 {
@@ -3085,6 +3086,227 @@ namespace GeoHyperstar.Forms
             //}
         }
 
+        #endregion
+
+        
+
+        #region INSTR
+
+        /// <summary>
+        /// This algorithm actually search from d to o
+        /// </summary>
+        /// <param name="WorkingNet"></param>
+        /// <param name="o"></param>
+        /// <param name="d"></param>
+        /// <param name="prior"> ture代表optimistic，false为pessimistic </param>
+        /// <param name="TimeSpan"></param>
+        /// <returns></returns>
+        bool FibDijkstraForwardForSubNet(Network WorkingNet, int o, int d, bool prior, out long TimeSpan)
+        {
+            TimeSpan = -1;
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+
+            FibonacciHeap<Node> Updated = new FibonacciHeap<Node>();//Updated node collection, add the new updated nodes and delete the permanent nodes dynamically
+            List<Node> ProcessFinished = new List<Node>();//Permanent collection
+            if (prior == true)
+                WorkingNet.AllNodes[o - 1].OptHeuristic = 0;
+            else WorkingNet.AllNodes[o - 1].PessHeuristic = 0;
+            WorkingNet.AllNodes[o - 1].HasProcessed = true;
+            Dictionary<Node, FibonacciHeapNode<Node>> FibNodeDict = new Dictionary<Node, FibonacciHeapNode<Node>>();
+            Node tempnode = WorkingNet.AllNodes[o - 1];
+            Node tempnextnode;
+            Updated.insert(new FibonacciHeapNode<Node>(tempnode), 0);
+            int ClosedNodes = 1;
+            while (ClosedNodes != WorkingNet.AllNodes.Count)//go on the loop before every node gets into the permanent collection
+            {
+                if (Updated.isEmpty()) break;//如果所有的点都已经获得P标号（剩下的没有获得P标号的是不可达点），主要用防止在单向网络中可能发生的错误
+                tempnode = Updated.removeMin().getData();
+                tempnode.HasProcessed = true;
+                ClosedNodes++;
+                for (int j = 0; j < tempnode.OutLinks.Count; j++)
+                {
+                    //******************************************************************错误就在于这里，不一定是ToID，也有可能更新FromID
+                    //tempnextnode = WorkingNet.AllNodes[tempnode.OutLinks[j].ToID - 1];
+                    //应该是更新流出路段的另一节点，而非一定是ToID。因为在路网拓扑构建的时候就已经考虑了路段的方向性。因此此处的tonode实际上是outlink的除了当前点之外的另一节点，可能是tonode，也可能是fromnode
+                    if (tempnode.GID == tempnode.OutLinks[j].FromGID)
+                        tempnextnode = WorkingNet.AllNodes[tempnode.OutLinks[j].To.SubID - 1];
+                    else tempnextnode = WorkingNet.AllNodes[tempnode.OutLinks[j].From.SubID - 1];
+                    // ********************************************************************
+                    if (prior == true)
+                    {
+                        if (tempnextnode.OptHeuristic > tempnode.OptHeuristic + tempnode.OutLinks[j].TravelTime_variable) //乐观最短路与悲观最短路的费用
+                        {
+                            tempnextnode.OptHeuristic = tempnode.OptHeuristic + tempnode.OutLinks[j].TravelTime_variable;
+                            tempnextnode.NextNodeID = tempnode.SubID;
+                            if (tempnextnode.HasProcessed == false)
+                            {
+                                FibonacciHeapNode<Node> FibNode;
+                                if (!FibNodeDict.ContainsKey(tempnextnode))
+                                {
+                                    FibNode = new FibonacciHeapNode<Node>(tempnextnode);
+                                    FibNodeDict.Add(tempnextnode, FibNode);
+                                    Updated.insert(FibNode, tempnextnode.OptHeuristic);
+                                }
+                                else
+                                {
+                                    FibNodeDict.TryGetValue(tempnextnode, out FibNode);
+                                    Updated.decreaseKey(FibNode, tempnextnode.OptHeuristic);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (tempnextnode.PessHeuristic > tempnode.PessHeuristic + tempnode.OutLinks[j].TravelTime_variable + 1 / tempnode.OutLinks[j].Fa) //乐观最短路与悲观最短路的费用
+                        {
+                            tempnextnode.PessHeuristic = tempnode.PessHeuristic + tempnode.OutLinks[j].TravelTime_variable + 1 / tempnode.OutLinks[j].Fa;
+                            tempnextnode.NextNodeID = tempnode.SubID;
+                            if (tempnextnode.HasProcessed == false)
+                            {
+                                FibonacciHeapNode<Node> FibNode;
+                                if (!FibNodeDict.ContainsKey(tempnextnode))
+                                {
+                                    FibNode = new FibonacciHeapNode<Node>(tempnextnode);
+                                    FibNodeDict.Add(tempnextnode, FibNode);
+                                    Updated.insert(FibNode, tempnextnode.PessHeuristic);
+                                }
+                                else
+                                {
+                                    FibNodeDict.TryGetValue(tempnextnode, out FibNode);
+                                    Updated.decreaseKey(FibNode, tempnextnode.PessHeuristic);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
+
+            sw.Stop();
+            TimeSpan = sw.ElapsedMilliseconds;
+
+            return true;
+        }
+
+
+
+        /// <summary>
+        /// Single Reliable Shortest Path
+        /// </summary>
+        /// <param name="workingNet"></param>C
+        /// <param name="o"></param>
+        /// <param name="d"></param>
+        /// <param name="path"></param>
+        /// <param name="TimeSpan_SRSP"></param>
+        public bool SRSP(Network workingNet, int o, int d, out Route path, out long TimeSpan_SRSP)
+        {
+            path = null;
+            TimeSpan_SRSP = -1;
+
+            //function entity
+
+            //Run shortest path
+
+            //link removal
+
+            //
+
+            return true;
+        }
+
+
+        public double CalculateReliability(Route route)
+        {
+            return 0;
+        }
+
+        /// <summary>
+        /// INSTR Conference work, create several routes with the highest defined absolute reliability index, Multiple Reliable Shortest Path
+        /// </summary>
+        /// <param name="workingNet">工作母网络</param>
+        /// <param name="o">母网络中的起点ID</param>
+        /// <param name="d">母网络中的终点ID</param>
+        /// <param name="subNet_Hyperpath">已经创建的hyperpath子网络</param>
+        /// <param name="topN"></param>
+        /// <param name="reliableRoutes"></param>
+        /// <param name="TimeSpan_RBP"></param>
+        /// <returns></returns>
+        public bool MRSP(Network workingNet, int o, int d , int topN, out List<Route> reliableRoutes , out long TimeSpan_MRSP)
+        {
+            reliableRoutes = null;
+            TimeSpan_MRSP = -1;
+
+            //下面是函数的主体部分
+            //Create hyperpath links by FDHS algorithm
+            List<Link> hyperpath_raw = new List<Link>();
+            long time_sp = -1;
+            long time_hp=-1;
+
+            //get the raw hyperpath (links with probability also included, Potentially optimal? What is the rule to identify this?)
+            FDHS(workingNet, o, d, ref hyperpath_raw, out time_sp, out time_hp);
+            
+            //get the hyperpath, p!=0
+            List<Link> hyperpath = GetHyperpath(hyperpath_raw);
+
+            List<Link> temp = new List<Link>();
+            DHS_Recover(workingNet, temp); 
+
+            //Create subnetwork from calculated hyperpath links
+            Network SubNet_hyperpath = workingNet.CreateSubNetwork(hyperpath.ToArray());
+
+            int o_subID = 0;
+            int d_subID = 0;
+            foreach (Node i in SubNet_hyperpath.AllNodes)
+            {
+                if (i.GID == o)
+                    o_subID = i.SubID;
+                else if (i.GID == d)
+                    d_subID = i.SubID;
+            }
+
+            //find the shortest path and calculate reliability 
+            long TimeSpan_SP = -1;
+            bool Accessible = false;
+
+            //Optimisitc shortest path
+            FibDijkstraForwardForSubNet(SubNet_hyperpath, o_subID, d_subID, true, out TimeSpan_SP);
+            List<int> opt_prior_SubIDs = GetShortestPathForSubNet(SubNet_hyperpath, o_subID, d_subID, true, out Accessible);
+            
+            List<Link> opt_prior_links = new List<Link>();
+            for (int i = 0; i < opt_prior_SubIDs.Count; i++)
+            {
+                Link l = SubNet_hyperpath.AllLinks[opt_prior_SubIDs[i] - 1];
+                opt_prior_links.Add(l);
+            }
+            Dijkstra_Recover(workingNet);
+          
+            //Pessimistic shortest path
+            FibDijkstraForwardForSubNet(SubNet_hyperpath, o_subID, d_subID, true, out TimeSpan_SP);
+            List<int> pes_prior_SubIDs = GetShortestPathForSubNet(SubNet_hyperpath, o_subID, d_subID, true, out Accessible);
+
+            List<Link> pes_prior_links = new List<Link>();
+            for (int i = 0; i < pes_prior_SubIDs.Count; i++)
+            {
+                Link l = SubNet_hyperpath.AllLinks[pes_prior_SubIDs[i] - 1];
+                pes_prior_links.Add(l);
+            }
+            Dijkstra_Recover(workingNet);
+          
+
+            //k shortest procedure    
+            //penal the links on determined shortest path (according to the Doctoral paper in matlab code, ask wei-san)
+
+            //find next shortest path
+
+            //dissimilar routes procedure
+
+            //relibaility procedure
+
+            //find decision nodes
+            return true;
+        }
         #endregion
     }
 }

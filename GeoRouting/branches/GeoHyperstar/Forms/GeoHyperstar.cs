@@ -27,6 +27,7 @@ using NetworkLib.Element;
 using WinChart;
 using System.Drawing;
 using System.Configuration;
+using NetworkLib;
 
 namespace GeoHyperstar.Forms
 {
@@ -1590,6 +1591,17 @@ namespace GeoHyperstar.Forms
             proc.WaitForExit();
             pictureBox1.Image=Image.FromFile(@"fig.png");
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+        }
+
+        private void INSTR_start_Click(object sender, EventArgs e)
+        {
+            int o = Convert.ToInt32(origin_INSTR_tb.Text);
+            int d = Convert.ToInt32(destination_INSTR_tb.Text);
+
+            List<Route> reliableRoutes = new List<Route>();
+            long TimeSpan_MRSP = -1;
+
+            MRSP(CurrentNet, o, d, 5, out reliableRoutes, out TimeSpan_MRSP);
         }
     }
 
