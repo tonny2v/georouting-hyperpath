@@ -336,7 +336,7 @@ namespace GeoHyperstar.Forms
                                     + "CREATE TABLE popath (id INTEGER, choice_possibility DOUBLE PRECISION); SELECT * FROM popath;";
 
 #else
-                            cmd.CommandText = "CREATE TABLE IF NOT EXISTS hyperpath_tmp (gid_tmp INTEGER, p_tmp DOUBLE PRECISION); DELETE FROM hyperpath_tmp; SELECT * FROM hyperpath_tmp";
+                                cmd.CommandText = "DROP TABLE IF EXISTS hyperpath_tmp; CREATE TABLE hyperpath_tmp (gid_tmp INTEGER, p_tmp DOUBLE PRECISION);  SELECT * FROM hyperpath_tmp";
 #endif
                                 da.Fill(DsToUpdate);
                                 //手动创建Datatable的关键语句
@@ -384,7 +384,7 @@ namespace GeoHyperstar.Forms
 
 #if !RSA
                             //cmd.CommandText = "DROP TABLE IF EXISTS hyperpath_lyr;select * into hyperpath_lyr from "+ ConfigurationManager.AppSettings.Get("road").ToString()+" join hyperpath on (hyperpath.id=road.gid);Drop table if exists hyperpath";
-                                cmd.CommandText = @"CREATE OR REPLACE VIEW hyperpath_lyr AS SELECT * from road JOIN hyperpath_tmp ON road.gid = hyperpath_tmp.gid_tmp;";
+                                cmd.CommandText = @"DROP TABLE IF EXISTS hyperpath_lyr; CREATE TABLE hyperpath_lyr AS SELECT * from road JOIN hyperpath_tmp ON road.gid = hyperpath_tmp.gid_tmp;";
                                 if (conn.State == ConnectionState.Closed) conn.Open(); 
                             cmd.ExecuteNonQuery();
 #else
@@ -1406,19 +1406,19 @@ namespace GeoHyperstar.Forms
             }
         }
 
-        private List<int> GetLinkVector(Network WorkingNet, List<int> LinkSetResult)
+        public List<int> GetLinkVector(Network WorkingNet, List<int> LinkSetResult)
         {
             List<int> Vector = new List<int>();
-            for (int i = 0; i < CurrentNet.AllLinks.Count; i++)
+            for (int i = 0; i < WorkingNet.AllLinks.Count; i++)
             {
-                if (LinkSetResult.Contains(CurrentNet.AllLinks[i].ID))
+                if (LinkSetResult.Contains(WorkingNet.AllLinks[i].ID))
                     Vector.Add(1);
                 else Vector.Add(0);
             }
             return Vector;
         }
 
-        private double Cosine(List<int> vect1, List<int> vect2)
+        public double Cosine(List<int> vect1, List<int> vect2)
         {
             double similarity = 0;
             double bc = 0;

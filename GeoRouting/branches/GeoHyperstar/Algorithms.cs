@@ -9,6 +9,7 @@ using System.Diagnostics;
 using NetworkLib.Element;
 using NetworkLib.FibHeap;
 using NetworkLib;
+using System.Text;
 
 namespace GeoHyperstar.Forms
 {
@@ -3222,6 +3223,62 @@ namespace GeoHyperstar.Forms
             return 0;
         }
 
+        void penalize(Route r, double parameter)
+        {
+            foreach (Link i in r.Links)
+            {
+                i.TravelTime_variable = (1 + parameter) * i.TravelTime_variable;
+            }
+        }
+        /// <summary>
+        /// Get the shortest path calculated by t (no delay)
+        /// </summary>
+        /// <param name="workingNet">mother network</param>
+        /// <param name="SubNet_hyperpath">subnetwork</param>
+        /// <param name="o_subID">sub_ID of origin in subnetwork</param>
+        /// <param name="d_subID">sub_ID of destination in subnetwork</param>
+        /// <returns></returns>
+        Route getOptmisticRoute(Network workingNet, Network SubNet_hyperpath, int o_subID, int d_subID)
+        {
+            //find the shortest path and calculate reliability 
+            long TimeSpan_SP = -1;
+            bool Accessible = false;
+
+            //Optimisitc shortest path
+            FibDijkstraForwardForSubNet(SubNet_hyperpath, o_subID, d_subID, true, out TimeSpan_SP);
+            List<int> opt_prior_SubIDs = GetShortestPathForSubNet(SubNet_hyperpath, o_subID, d_subID, true, out Accessible);
+
+            List<Link> opt_prior_links = new List<Link>();
+            for (int i = 0; i < opt_prior_SubIDs.Count; i++)
+            {
+                Link l = SubNet_hyperpath.AllLinks[opt_prior_SubIDs[i] - 1];
+                opt_prior_links.Add(l);
+            }
+            Route opt_prior = new Route(opt_prior_links.ToArray());
+            Dijkstra_Recover(SubNet_hyperpath);
+            return opt_prior;
+        }
+
+        Route getPessimisticRoute(Network workingNet, Network SubNet_hyperpath, int o_subID, int d_subID)
+        {
+            long TimeSpan_SP = -1;
+            bool Accessible = false;
+             //Pessimistic shortest path
+            FibDijkstraForwardForSubNet(SubNet_hyperpath, o_subID, d_subID, true, out TimeSpan_SP);
+            List<int> pes_prior_SubIDs = GetShortestPathForSubNet(SubNet_hyperpath, o_subID, d_subID, true, out Accessible);
+
+            List<Link> pes_prior_links = new List<Link>();
+            for (int i = 0; i < pes_prior_SubIDs.Count; i++)
+            {
+                Link l = SubNet_hyperpath.AllLinks[pes_prior_SubIDs[i] - 1];
+                pes_prior_links.Add(l);
+            }
+            Route pes_prior = new Route(pes_prior_links.ToArray());
+            Dijkstra_Recover(SubNet_hyperpath);
+            return pes_prior;
+        }
+
+
         /// <summary>
         /// INSTR Conference work, create several routes with the highest defined absolute reliability index, Multiple Reliable Shortest Path
         /// </summary>
@@ -3233,8 +3290,12 @@ namespace GeoHyperstar.Forms
         /// <param name="reliableRoutes"></param>
         /// <param name="TimeSpan_RBP"></param>
         /// <returns></returns>
+        
         public bool MRSP(Network workingNet, int o, int d , int topN, out List<Route> reliableRoutes , out long TimeSpan_MRSP)
         {
+            int maxIter = 1000;
+            int iter = 0;
+            int K = 20; //the number different routes
             reliableRoutes = null;
             TimeSpan_MRSP = -1;
 
@@ -3266,47 +3327,52 @@ namespace GeoHyperstar.Forms
                     d_subID = i.SubID;
             }
 
-            //find the shortest path and calculate reliability 
-            long TimeSpan_SP = -1;
-            bool Accessible = false;
+            //k-shortest procedure
+           
+            List<Route> routes = new List<Route>();
+            HashSet<string> existingRouts = new HashSet<string>();
 
-            //Optimisitc shortest path
-            FibDijkstraForwardForSubNet(SubNet_hyperpath, o_subID, d_subID, true, out TimeSpan_SP);
-            List<int> opt_prior_SubIDs = GetShortestPathForSubNet(SubNet_hyperpath, o_subID, d_subID, true, out Accessible);
-            
-            List<Link> opt_prior_links = new List<Link>();
-            for (int i = 0; i < opt_prior_SubIDs.Count; i++)
+            while (routes.Count < K)
             {
-                Link l = SubNet_hyperpath.AllLinks[opt_prior_SubIDs[i] - 1];
-                opt_prior_links.Add(l);
+                Route opt_prior = getOptmisticRoute(workingNet, SubNet_hyperpath, o_subID, d_subID);
+                
+                //accept the route if it is different with the past ones
+                string currentRouteString = VectorToString(GetLinkVector(SubNet_hyperpath, opt_prior.ToIDs()));
+                
+
+                if (!existingRouts.Contains(currentRouteString)) 
+                {
+                    existingRouts.Add(currentRouteString);
+                    routes.Add(opt_prior); 
+                }
+                
+                //penal the links on determined shortest path (according to the Doctoral paper in matlab code, ask wei-san)
+                penalize(opt_prior, 0.2);
+                SubNet_hyperpath.penalized++;
+
+                //find next shortest path
+
+                //dissimilar routes procedure
+
+                //relibaility procedure
+
+                //find decision nodes
+                iter++;
+                if (iter > maxIter) break;
             }
-            Dijkstra_Recover(workingNet);
-          
-            //Pessimistic shortest path
-            FibDijkstraForwardForSubNet(SubNet_hyperpath, o_subID, d_subID, true, out TimeSpan_SP);
-            List<int> pes_prior_SubIDs = GetShortestPathForSubNet(SubNet_hyperpath, o_subID, d_subID, true, out Accessible);
-
-            List<Link> pes_prior_links = new List<Link>();
-            for (int i = 0; i < pes_prior_SubIDs.Count; i++)
-            {
-                Link l = SubNet_hyperpath.AllLinks[pes_prior_SubIDs[i] - 1];
-                pes_prior_links.Add(l);
-            }
-            Dijkstra_Recover(workingNet);
-          
-
-            //k shortest procedure    
-            //penal the links on determined shortest path (according to the Doctoral paper in matlab code, ask wei-san)
-
-            //find next shortest path
-
-            //dissimilar routes procedure
-
-            //relibaility procedure
-
-            //find decision nodes
             return true;
         }
+
+        public string VectorToString(List<int> vector) 
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (int i in vector)
+            {
+                sb.Append(i.ToString());
+            }
+            return sb.ToString();
+        }
+
         #endregion
     }
 }

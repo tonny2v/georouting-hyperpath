@@ -301,6 +301,7 @@ namespace NetworkLib.Element
     [Serializable]
     public class Network : IDisposable,ICloneable
     {
+        public int penalized=0;
         public NodeCol_List AllNodes;
         public LinkCol_List AllLinks;
 
@@ -413,6 +414,7 @@ namespace NetworkLib.Element
         {
             AllLinks = null;
             AllNodes = null;
+            penalized = 0;
         }
 
         #endregion
