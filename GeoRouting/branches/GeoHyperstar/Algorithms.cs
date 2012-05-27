@@ -10,6 +10,7 @@ using NetworkLib.Element;
 using NetworkLib.FibHeap;
 using NetworkLib;
 using System.Text;
+using MapDisplayModule;
 
 namespace GeoHyperstar.Forms
 {
@@ -3366,6 +3367,11 @@ namespace GeoHyperstar.Forms
             CompareRoutes compare=new CompareRoutes();
             routes.Sort(compare);
 
+            //
+            MapDisplay.Routes = routes;
+            
+
+            //Complete
             DHS_Recover(workingNet,hyperpath_raw);
             return true;
         }
@@ -3379,6 +3385,8 @@ namespace GeoHyperstar.Forms
                 else return -1;
             }
         }
+
+       
 
         public string VectorToString(List<int> vector) 
         {

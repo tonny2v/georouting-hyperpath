@@ -16,9 +16,11 @@ using System.Diagnostics;
 using System.IO;
 using GisSharpBlog.NetTopologySuite;
 using System.Drawing.Imaging;
+using NetworkLib;
 
 
-namespace SharpMapUITest
+
+namespace MapDisplayModule
 {
     public partial class MapDisplay : Form
     {
@@ -39,6 +41,9 @@ namespace SharpMapUITest
 
         public static int origin;
         public static int destination;
+
+        public static List<Route> Routes;
+
 
         SharpMap.Layers.LabelLayer verticesAsLabel;//node label style
         SharpMap.Layers.LabelLayer roadlayASLabel;//link label style
@@ -78,6 +83,18 @@ namespace SharpMapUITest
         {
             SharpMap.Map myMap = new SharpMap.Map();
 
+            AddDBLayers(sqlconn, tableName, myMap);
+
+            AddODPointLayers(myMap);
+
+            AddRouteLayers(myMap);
+
+            return myMap;
+        }
+        #region Functions for adding layers to the map
+
+        private void AddDBLayers(string sqlconn, string[] tableName, SharpMap.Map myMap)
+        {
             using (NpgsqlConnection conn = new NpgsqlConnection(sqlconn))
             {
                 conn.Open();
@@ -93,7 +110,7 @@ namespace SharpMapUITest
                     vertices_tmp.Style.Symbol = SharpMap.Styles.VectorStyle.DefaultSymbol;
                     //vertices_tmp.Style.Symbol = Image.FromFile("..\\..\\Node.bmp");
                     vertices_tmp.Style.SymbolScale = (float)0.32;
-                    
+
                     //不消除锯齿
                     vertices_tmp.SmoothingMode = SmoothingMode.None;
                     myMap.Layers.Add(vertices_tmp);
@@ -176,8 +193,8 @@ namespace SharpMapUITest
                     popath_lyr.Style = mystyle;
                     myMap.Layers.Add(popath_lyr);
 
-                    
-                    
+
+
                 }
 
                 if (tableName.Contains("regretpath_lyr"))
@@ -198,35 +215,10 @@ namespace SharpMapUITest
                 }
 
             }
-            return myMap;
         }
 
-        #region ToolStripButton Events
-
-        private void Refresth_btn_Click(object sender, EventArgs e)
+        private void AddODPointLayers(SharpMap.Map myMap)
         {
-            timer1.Dispose();
-            if (ConnStr == string.Empty) MessageBox.Show("No Sql Connection!");
-            List<string> lyrs = new List<string>();
-            foreach (var i in Layers_clb.Items)
-            {
-                if(Layers_clb.CheckedItems.Contains(i))
-                    lyrs.Add(i.ToString());
-            }
-            
-            CurrentDB_tsl.Text = "Connection: "+database;
-            //mapImage1.Map.Size = Size;
-            mapImage1.Map = GetCurrentMap(ConnStr, lyrs.ToArray());
-            Cursor = Cursors.Default;
-            mapImage1.ActiveTool = MapImage.Tools.None;
-            //mapImage1.ActiveTool = MapImage.Tools.Pan;
-            mapImage1.Map.ZoomToExtents();
-            fullzoom = mapImage1.Map.Zoom;
-            //mapImage1.Map.GetMap();
-
-            SelectedLayer_tsl.Text = "Current Layer: "+Layers_clb.SelectedItem.ToString();
-            //mapImage1.Cursor = mic;
-            
             //query WKT of origin and destination
             string O_wkt = "";
             string D_wkt = "";
@@ -268,7 +260,7 @@ namespace SharpMapUITest
             //if (ds == null) return;
 
             //DataRow[] query = ds.Tables[0].Select("", "id");
-            
+
             //FeatureDataRow O_fdr = query.ElementAt(origin - 1) as FeatureDataRow;
             //FeatureDataRow D_fdr = query.ElementAt(destination - 1) as FeatureDataRow;
             ////SharpMap.Geometries.Point O2Draw = (O_fdr.Geometry as SharpMap.Geometries.Point);
@@ -278,14 +270,66 @@ namespace SharpMapUITest
             VectorLayer Destination_lyr = new VectorLayer("Destination");
 
             Origin_lyr.DataSource = new SharpMap.Data.Providers.GeometryProvider(O_wkt);
+
             Origin_lyr.Style.PointColor = new SolidBrush(Color.Red);
 
 
             Destination_lyr.DataSource = new SharpMap.Data.Providers.GeometryProvider(D_wkt);
             Destination_lyr.Style.PointColor = new SolidBrush(Color.Blue);
 
-            mapImage1.Map.Layers.Add(Origin_lyr);
-            mapImage1.Map.Layers.Add(Destination_lyr);
+            myMap.Layers.Add(Origin_lyr);
+            myMap.Layers.Add(Destination_lyr);
+        }
+
+        private void AddRouteLayers(SharpMap.Map myMap)
+        {
+            int routeCnt = 0;
+            foreach (Route r in Routes)
+            {
+                routeCnt++;
+                SharpMap.Geometries.GeometryCollection routeGeo = new SharpMap.Geometries.GeometryCollection();
+                foreach (NetworkLib.Element.Link i in r.Links)
+                {
+                    SharpMap.Geometries.Geometry linkGeo = SharpMap.Converters.WellKnownText.GeometryFromWKT.Parse(i.WKT);
+                    routeGeo.Collection.Add(linkGeo);
+                }
+                VectorLayer route_lyr = new VectorLayer("Route" + routeCnt.ToString());
+                route_lyr.DataSource = new SharpMap.Data.Providers.GeometryProvider(routeGeo);
+                 //Add route layers to myMap
+                myMap.Layers.Add(route_lyr);
+            }
+
+        }
+        #endregion
+        
+
+        #region ToolStripButton Events
+
+        private void Refresth_btn_Click(object sender, EventArgs e)
+        {
+            timer1.Dispose();
+            if (ConnStr == string.Empty) MessageBox.Show("No Sql Connection!");
+            List<string> lyrs = new List<string>();
+            foreach (var i in Layers_clb.Items)
+            {
+                if(Layers_clb.CheckedItems.Contains(i))
+                    lyrs.Add(i.ToString());
+            }
+            
+            CurrentDB_tsl.Text = "Connection: "+database;
+            //mapImage1.Map.Size = Size;
+            mapImage1.Map = GetCurrentMap(ConnStr, lyrs.ToArray());
+            Cursor = Cursors.Default;
+            mapImage1.ActiveTool = MapImage.Tools.None;
+            //mapImage1.ActiveTool = MapImage.Tools.Pan;
+            mapImage1.Map.ZoomToExtents();
+            fullzoom = mapImage1.Map.Zoom;
+            //mapImage1.Map.GetMap();
+
+            SelectedLayer_tsl.Text = "Current Layer: "+Layers_clb.SelectedItem.ToString();
+            //mapImage1.Cursor = mic;
+            
+            
 
             mapImage1.Refresh();
             //PointF O_pointf = SharpMap.Utilities.Transform.WorldtoMap(O2Draw, mapImage1.Map);

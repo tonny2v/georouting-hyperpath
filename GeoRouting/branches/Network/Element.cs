@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 
+
 namespace NetworkLib.Element
 {
     [Serializable]
@@ -160,7 +161,7 @@ namespace NetworkLib.Element
         double traveltime_fixed;
         double fa;
         int direction;
-
+        string wkt;
 
         //可读写属性
         public double UiAddCa { get; set; }
@@ -188,6 +189,7 @@ namespace NetworkLib.Element
         public double TravelTime_Fixed { get { return traveltime_fixed; } }
         public double Fa { get { return fa; } }
         public int Direction { get { return direction; } }
+        public string WKT { get { return wkt; } }
 
         //构造函数
         public Link() { }
@@ -203,6 +205,7 @@ namespace NetworkLib.Element
             Regret = double.PositiveInfinity;
             gid = Convert.ToInt32(_attrdr["gid"]);
             traveltime_fixed = Convert.ToDouble(_attrdr["time"]);
+            wkt = _attrdr["WKT"].ToString();
             TravelTime_variable = traveltime_fixed;
             //考虑最大延误为0的情形
 
@@ -259,6 +262,7 @@ namespace NetworkLib.Element
             l.TravelTime_variable = this.traveltime_fixed;
             l.UiAddCa = double.PositiveInfinity;
             l.UiAddCa_Infinity = double.PositiveInfinity;
+            l.wkt = this.wkt;
             return l;
         }
     }

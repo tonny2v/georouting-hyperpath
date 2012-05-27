@@ -9,7 +9,7 @@ using System.Data;
 using System.IO;
 using ProjNet.CoordinateSystems.Transformations;
 
-namespace SharpMapUITest
+namespace MapDisplayModule
 {
     class GoogleEarthKML
     {

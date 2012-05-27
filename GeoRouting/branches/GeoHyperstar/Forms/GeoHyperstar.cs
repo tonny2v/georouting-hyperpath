@@ -22,7 +22,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 using Npgsql;
 
-using SharpMapUITest;
+using MapDisplayModule;
 using NetworkLib.Element;
 using WinChart;
 using System.Drawing;
@@ -465,8 +465,8 @@ namespace GeoHyperstar.Forms
 
         private void MapDisplay_btn_Click(object sender, EventArgs e)
         {
-            SharpMapUITest.MapDisplay.ConnStr = ConnStr;
-            SharpMapUITest.MapDisplay MapDisplayForm = new MapDisplay();
+            MapDisplayModule.MapDisplay.ConnStr = ConnStr;
+            MapDisplayModule.MapDisplay MapDisplayForm = new MapDisplay();
 
             MapDisplayForm.Nodes_Animation = NodeDirect_animation.ToArray();
             MapDisplayForm.Links_Animation = SelectedLink_animation.ToArray();
@@ -996,7 +996,8 @@ namespace GeoHyperstar.Forms
                     CurrentNet.AllNodes.Add(newnode);
                 }
 #endif
-                cmd.CommandText = "SELECT * from "+ ConfigurationManager.AppSettings.Get("road").ToString()+" ORDER BY gid;";
+                cmd.CommandText = "SELECT gid, source, target, direction, time, maxdelay, ST_ASEWKT(the_geom) as WKT"+
+                " from "+ ConfigurationManager.AppSettings.Get("road").ToString()+" ORDER BY gid;";
                 dt_link = new DataTable("links");
                 da.Fill(dt_link);
                 cmd.Dispose();
@@ -1005,7 +1006,7 @@ namespace GeoHyperstar.Forms
                 dt_link.Dispose();
                 conn.Close();
             }
-
+           
             if (MaxDelayLevel_cmb.SelectedIndex == 6) maxdelaylevel = 10;
             else if (MaxDelayLevel_cmb.SelectedIndex == 7) maxdelaylevel = 0.5;
             else maxdelaylevel = MaxDelayLevel_cmb.SelectedIndex;
@@ -1014,11 +1015,11 @@ namespace GeoHyperstar.Forms
             for (int i = 0; i < dt_link.Rows.Count; i++)
             {
                 DataRow row = dt_link.Rows[i];
-                 
                 switch (Convert.ToInt32(row["direction"]))
                 {
                     case 0://如果该路段是双向通行，则在路段链表中产生两条路段，分配id，并将他们加入各自对应的节点出入弧集合中
                         //添加数字化方向同向路段
+                        
                         Link newlink = new Link(CurrentNet.AllLinks.Count + 1, row, maxdelaylevel, true);
                         CurrentNet.AllLinks.Add(newlink);
                         CurrentNet.AllNodes[newlink.FromGID - 1].AddOutLink(newlink);

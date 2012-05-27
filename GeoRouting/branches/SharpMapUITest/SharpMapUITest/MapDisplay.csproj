@@ -108,6 +108,10 @@
     <Content Include="Node.bmp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Network\NetworkLib.csproj">
+      <Project>{972523F3-B708-48C0-A1B3-3D346929C179}</Project>
+      <Name>NetworkLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\SharpMap.Extensions\SharpMap.Extensions.csproj">
       <Project>{A4140C12-53F5-438C-8D24-9E48C504FECF}</Project>
       <Name>SharpMap.Extensions</Name>
