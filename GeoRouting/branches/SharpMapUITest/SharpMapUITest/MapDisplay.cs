@@ -214,7 +214,7 @@ namespace SharpMapUITest
                     lyrs.Add(i.ToString());
             }
             
-            CurrentDB_tsl.Text = "Connection: localhost//"+database;
+            CurrentDB_tsl.Text = "Connection: "+database;
             //mapImage1.Map.Size = Size;
             mapImage1.Map = GetCurrentMap(ConnStr, lyrs.ToArray());
             Cursor = Cursors.Default;
@@ -226,35 +226,73 @@ namespace SharpMapUITest
 
             SelectedLayer_tsl.Text = "Current Layer: "+Layers_clb.SelectedItem.ToString();
             //mapImage1.Cursor = mic;
-            mapImage1.Refresh();
-            //add origin and destination layers
-            SharpMap.Layers.VectorLayer oLayer = new VectorLayer("origin");
-            VectorLayer dLayer = new VectorLayer("destination");
-            SharpMap.Layers.VectorLayer query_lyr;
-            query_lyr = this.mapImage1.Map.GetLayerByName("Vertices_tmp") as SharpMap.Layers.VectorLayer;
-            if (query_lyr == null)
-            {
-                throw (new ApplicationException("An attempt was made to read from a closed datasource"));
-            }
-            if (!query_lyr.DataSource.IsOpen) query_lyr.DataSource.Open();
-
-            //get all the features in the query_lyr. 
-            SharpMap.Data.FeatureDataSet ds = new SharpMap.Data.FeatureDataSet();
-            query_lyr.DataSource.ExecuteIntersectionQuery(query_lyr.Envelope, ds);
-
-            query_lyr.DataSource.Close();
-            if (ds == null) return;
-
-            DataRow[] query = ds.Tables[0].Select("", "id");
             
-            FeatureDataRow O_fdr = query.ElementAt(origin - 1) as FeatureDataRow;
-            FeatureDataRow D_fdr = query.ElementAt(destination - 1) as FeatureDataRow;
-            SharpMap.Geometries.Point O2Draw = (O_fdr.Geometry as SharpMap.Geometries.Point);
-            SharpMap.Geometries.Point D2Draw = (D_fdr.Geometry as SharpMap.Geometries.Point);
-            PointF O_pointf = SharpMap.Utilities.Transform.WorldtoMap(O2Draw, mapImage1.Map);
-            PointF D_pointf = SharpMap.Utilities.Transform.WorldtoMap(D2Draw, mapImage1.Map);
-            g.FillRectangle(new SolidBrush(Color.Red),O_pointf.X-6,O_pointf.Y-6,12,12);
-            g.FillRectangle(new SolidBrush(Color.Blue), D_pointf.X-6, D_pointf.Y-6, 12, 12);
+            //query WKT of origin and destination
+            string O_wkt = "";
+            string D_wkt = "";
+            using (NpgsqlConnection conn = new NpgsqlConnection(ConnStr))
+            {
+
+                NpgsqlCommand cmd = new NpgsqlCommand("select id, st_asewkt(the_geom) as wkt from vertices_tmp where id=" + origin.ToString() + "or id=" + destination.ToString(), conn);
+                NpgsqlDataAdapter da = new NpgsqlDataAdapter(cmd);
+                DataSet tds = new DataSet();
+                da.Fill(tds);
+
+                foreach (DataRow dr in tds.Tables[0].Rows)
+                {
+                    if (dr["id"].ToString() == origin.ToString())
+                        O_wkt = dr["wkt"].ToString();
+                    else if (dr["id"].ToString() == destination.ToString())
+                        D_wkt = dr["wkt"].ToString();
+                }
+                cmd.Dispose();
+                da.Dispose();
+                tds.Dispose();
+            }
+            ////add origin and destination layers
+            //SharpMap.Layers.VectorLayer oLayer = new VectorLayer("origin");
+            //VectorLayer dLayer = new VectorLayer("destination");
+            //SharpMap.Layers.VectorLayer query_lyr;
+            //query_lyr = this.mapImage1.Map.GetLayerByName("Vertices_tmp") as SharpMap.Layers.VectorLayer;
+            //if (query_lyr == null)
+            //{
+            //    throw (new ApplicationException("An attempt was made to read from a closed datasource"));
+            //}
+            //if (!query_lyr.DataSource.IsOpen) query_lyr.DataSource.Open();
+
+            ////get all the features in the query_lyr. 
+            //SharpMap.Data.FeatureDataSet ds = new SharpMap.Data.FeatureDataSet();
+            //query_lyr.DataSource.ExecuteIntersectionQuery(query_lyr.Envelope, ds);
+
+            //query_lyr.DataSource.Close();
+            //if (ds == null) return;
+
+            //DataRow[] query = ds.Tables[0].Select("", "id");
+            
+            //FeatureDataRow O_fdr = query.ElementAt(origin - 1) as FeatureDataRow;
+            //FeatureDataRow D_fdr = query.ElementAt(destination - 1) as FeatureDataRow;
+            ////SharpMap.Geometries.Point O2Draw = (O_fdr.Geometry as SharpMap.Geometries.Point);
+            ////SharpMap.Geometries.Point D2Draw = (D_fdr.Geometry as SharpMap.Geometries.Point);
+
+            VectorLayer Origin_lyr = new VectorLayer("Origin");
+            VectorLayer Destination_lyr = new VectorLayer("Destination");
+
+            Origin_lyr.DataSource = new SharpMap.Data.Providers.GeometryProvider(O_wkt);
+            Origin_lyr.Style.PointColor = new SolidBrush(Color.Red);
+
+
+            Destination_lyr.DataSource = new SharpMap.Data.Providers.GeometryProvider(D_wkt);
+            Destination_lyr.Style.PointColor = new SolidBrush(Color.Blue);
+
+            mapImage1.Map.Layers.Add(Origin_lyr);
+            mapImage1.Map.Layers.Add(Destination_lyr);
+
+            mapImage1.Refresh();
+            //PointF O_pointf = SharpMap.Utilities.Transform.WorldtoMap(O2Draw, mapImage1.Map);
+            //PointF D_pointf = SharpMap.Utilities.Transform.WorldtoMap(D2Draw, mapImage1.Map);
+
+            //g.FillRectangle(new SolidBrush(Color.Red),O_pointf.X-6,O_pointf.Y-6,12,12);
+            //g.FillRectangle(new SolidBrush(Color.Blue), D_pointf.X-6, D_pointf.Y-6, 12, 12);
 
         
             //RenderElementByID(origin, Color.Red, "Point", true, g);
@@ -586,18 +624,18 @@ namespace SharpMapUITest
             switch (Redirect_cmb.SelectedIndex)
             {
                 case 0: database = "postgis";
-                    CurrentDB_tsl.Text = "Connection: //localhost/"+database;
+                    CurrentDB_tsl.Text = "Connection: "+database;
                     break;
                 case 1: database="postgis2";
-                    CurrentDB_tsl.Text = "Connection: //localhost/" + database;
+                    CurrentDB_tsl.Text = "Connection: " + database;
                     break;
                 case 2:
                     database = "postgis3";
-                    CurrentDB_tsl.Text = "Connection: //localhost/" + database;
+                    CurrentDB_tsl.Text = "Connection: " + database;
                     break;
                 case 3:
                     database = "postgis4";
-                    CurrentDB_tsl.Text = "Connection: //localhost/" + database;
+                    CurrentDB_tsl.Text = "Connection: " + database;
                     break;
                 default:
                     break;
