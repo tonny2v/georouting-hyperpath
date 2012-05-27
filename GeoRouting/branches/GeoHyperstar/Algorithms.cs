@@ -2202,6 +2202,8 @@ namespace GeoHyperstar.Forms
                 i.NextNodeID = -1;
                 i.H = null;
                 i.H_Infinity = null;
+                i.OptHeuristic = double.PositiveInfinity;
+                i.PessHeuristic = double.PositiveInfinity;
             }
             foreach (Link i in WorkingNet.AllLinks)
             {
@@ -3294,8 +3296,10 @@ namespace GeoHyperstar.Forms
         public bool MRSP(Network workingNet, int o, int d , int topN, out List<Route> reliableRoutes , out long TimeSpan_MRSP)
         {
             int maxIter = 1000;
-            int iter = 0;
             int K = 20; //the number different routes
+            double lambda = 0.5; //penal the large delays: d >= 0.8t
+
+
             reliableRoutes = null;
             TimeSpan_MRSP = -1;
 
@@ -3330,8 +3334,9 @@ namespace GeoHyperstar.Forms
             //k-shortest procedure
            
             List<Route> routes = new List<Route>();
-            HashSet<string> existingRouts = new HashSet<string>();
+            HashSet<string> existingRoutes = new HashSet<string>();
 
+            int iter = 0;
             while (routes.Count < K)
             {
                 Route opt_prior = getOptmisticRoute(workingNet, SubNet_hyperpath, o_subID, d_subID);
@@ -3340,27 +3345,39 @@ namespace GeoHyperstar.Forms
                 string currentRouteString = VectorToString(GetLinkVector(SubNet_hyperpath, opt_prior.ToIDs()));
                 
 
-                if (!existingRouts.Contains(currentRouteString)) 
+                if (!existingRoutes.Contains(currentRouteString)) 
                 {
-                    existingRouts.Add(currentRouteString);
+                    existingRoutes.Add(currentRouteString);
                     routes.Add(opt_prior); 
                 }
                 
                 //penal the links on determined shortest path (according to the Doctoral paper in matlab code, ask wei-san)
                 penalize(opt_prior, 0.2);
                 SubNet_hyperpath.penalized++;
-
-                //find next shortest path
-
-                //dissimilar routes procedure
-
-                //relibaility procedure
-
-                //find decision nodes
                 iter++;
                 if (iter > maxIter) break;
             }
+            //the reliability calculation procedure
+            foreach (Route r in routes)
+            {
+                CalReliability(r,lambda);
+            }
+            
+            CompareRoutes compare=new CompareRoutes();
+            routes.Sort(compare);
+
+            DHS_Recover(workingNet,hyperpath_raw);
             return true;
+        }
+
+        internal class CompareRoutes : IComparer<Route>
+        {
+            public int Compare(Route x, Route y)
+            {
+                if (x.Reliability == y.Reliability) return 0;
+                else if (x.Reliability > y.Reliability) return 1;
+                else return -1;
+            }
         }
 
         public string VectorToString(List<int> vector) 
@@ -3372,6 +3389,23 @@ namespace GeoHyperstar.Forms
             }
             return sb.ToString();
         }
+
+        public void CalReliability(Route r, double lambda)
+        {
+            
+            double sum_t = 0;
+            double sum_d = 0;
+            double sum_x = 0;
+            foreach (Link i in r.Links)
+            {
+                sum_t += i.TravelTime_Fixed;
+                sum_d += 1 / i.Fa;
+                double x= (1/i.Fa)/i.TravelTime_Fixed < lambda ? 0:1;
+                sum_x += x;
+            }
+            r.Reliability = sum_t / (sum_d * sum_x);
+        }
+
 
         #endregion
     }
