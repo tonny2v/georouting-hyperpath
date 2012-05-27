@@ -1603,6 +1603,32 @@ namespace GeoHyperstar.Forms
             long TimeSpan_MRSP = -1;
 
             MRSP(CurrentNet, o, d, 5, out reliableRoutes, out TimeSpan_MRSP);
+            MessageBox.Show(this,"Procedure completed.","Notice",MessageBoxButtons.OK,MessageBoxIcon.Information);
+        }
+
+        private void HyperFrom_nud_ValueChanged(object sender, EventArgs e)
+        {
+            origin_INSTR_tb.Text = HyperFrom_nud.Value.ToString();
+        }
+
+        private void HyperTo_nud_ValueChanged(object sender, EventArgs e)
+        {
+            destination_INSTR_tb.Text = HyperTo_nud.Value.ToString();
+        }
+
+        private void origin_INSTR_tb_TextChanged(object sender, EventArgs e)
+        {
+            HyperFrom_nud.Value = Convert.ToInt32(origin_INSTR_tb.Text);
+        }
+
+        private void destination_INSTR_tb_TextChanged(object sender, EventArgs e)
+        {
+            HyperTo_nud.Value = Convert.ToInt32(destination_INSTR_tb.Text);
+        }
+
+        private void GeoHyperStar_MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
         }
     }
 

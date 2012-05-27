@@ -8,8 +8,8 @@
     <ProjectGuid>{160E518D-0139-41C7-957B-12CDE24D01D6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SharpMapUITest</RootNamespace>
-    <AssemblyName>SharpMapUITest</AssemblyName>
+    <RootNamespace>MapDisplayModule</RootNamespace>
+    <AssemblyName>MapDisplayModule</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GoogleEarthKML.cs" />
+    <Compile Include="LayerHelper.cs" />
     <Compile Include="MapDisplay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +81,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShowRoute.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowRoute.Designer.cs">
+      <DependentUpon>ShowRoute.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MapDisplay.resx">
       <DependentUpon>MapDisplay.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +100,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ShowRoute.resx">
+      <DependentUpon>ShowRoute.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -106,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Node.bmp" />
+    <None Include="Resources\save.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Network\NetworkLib.csproj">

@@ -64,13 +64,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.testNetwrokToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mesh533945ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uSNetworkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.advancedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AlgLog_tb = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.Clear_btn = new System.Windows.Forms.Button();
@@ -99,7 +92,6 @@
             this.AlgName_cb = new System.Windows.Forms.ComboBox();
             this.SPSim_tp = new System.Windows.Forms.TabPage();
             this.SP_Sim_Plot_btn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Start2_btn = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.RunTimes2_nud = new System.Windows.Forms.NumericUpDown();
@@ -112,6 +104,14 @@
             this.origin_INSTR_tb = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.runToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testNetwrokToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mesh533945ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uSNetworkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.advancedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.Origin_nud)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Destination_nud)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -132,10 +132,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.RunTimes_nud)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RandOD_nud)).BeginInit();
             this.SPSim_tp.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RunTimes2_nud)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RandOD2_nud)).BeginInit();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // RunAlg_btn
@@ -502,6 +502,7 @@
             0,
             0,
             0});
+            this.HyperTo_nud.ValueChanged += new System.EventHandler(this.HyperTo_nud_ValueChanged);
             // 
             // HyperFrom_nud
             // 
@@ -524,6 +525,7 @@
             0,
             0,
             0});
+            this.HyperFrom_nud.ValueChanged += new System.EventHandler(this.HyperFrom_nud_ValueChanged);
             // 
             // MaxDelayLevel_cmb
             // 
@@ -587,64 +589,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(755, 24);
             this.menuStrip1.TabIndex = 21;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // runToolStripMenuItem
-            // 
-            this.runToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("runToolStripMenuItem.Image")));
-            this.runToolStripMenuItem.Name = "runToolStripMenuItem";
-            this.runToolStripMenuItem.ShortcutKeyDisplayString = "";
-            this.runToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.runToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.runToolStripMenuItem.Text = "&Run";
-            this.runToolStripMenuItem.Click += new System.EventHandler(this.runToolStripMenuItem_Click);
-            // 
-            // settingToolStripMenuItem
-            // 
-            this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.testNetwrokToolStripMenuItem,
-            this.mesh533945ToolStripMenuItem,
-            this.uSNetworkToolStripMenuItem,
-            this.advancedToolStripMenuItem});
-            this.settingToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("settingToolStripMenuItem.Image")));
-            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
-            this.settingToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.settingToolStripMenuItem.Text = "&Setting";
-            // 
-            // testNetwrokToolStripMenuItem
-            // 
-            this.testNetwrokToolStripMenuItem.Name = "testNetwrokToolStripMenuItem";
-            this.testNetwrokToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.testNetwrokToolStripMenuItem.Text = "&Test Netwrok";
-            this.testNetwrokToolStripMenuItem.Click += new System.EventHandler(this.testNetwrokToolStripMenuItem_Click);
-            // 
-            // mesh533945ToolStripMenuItem
-            // 
-            this.mesh533945ToolStripMenuItem.Name = "mesh533945ToolStripMenuItem";
-            this.mesh533945ToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.mesh533945ToolStripMenuItem.Text = "&Mesh 533935";
-            this.mesh533945ToolStripMenuItem.Click += new System.EventHandler(this.mesh533945ToolStripMenuItem_Click);
-            // 
-            // uSNetworkToolStripMenuItem
-            // 
-            this.uSNetworkToolStripMenuItem.Name = "uSNetworkToolStripMenuItem";
-            this.uSNetworkToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.uSNetworkToolStripMenuItem.Text = "&US. Network";
-            this.uSNetworkToolStripMenuItem.Click += new System.EventHandler(this.uSNetworkToolStripMenuItem_Click);
-            // 
-            // advancedToolStripMenuItem
-            // 
-            this.advancedToolStripMenuItem.Name = "advancedToolStripMenuItem";
-            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.advancedToolStripMenuItem.Text = "&Advanced";
-            this.advancedToolStripMenuItem.Click += new System.EventHandler(this.advancedToolStripMenuItem_Click);
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("helpToolStripMenuItem.Image")));
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.helpToolStripMenuItem.Text = "&Help";
-            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // AlgLog_tb
             // 
@@ -964,13 +908,13 @@
             // SPSim_tp
             // 
             this.SPSim_tp.Controls.Add(this.SP_Sim_Plot_btn);
-            this.SPSim_tp.Controls.Add(this.pictureBox1);
             this.SPSim_tp.Controls.Add(this.Start2_btn);
             this.SPSim_tp.Controls.Add(this.label12);
             this.SPSim_tp.Controls.Add(this.RunTimes2_nud);
             this.SPSim_tp.Controls.Add(this.label13);
             this.SPSim_tp.Controls.Add(this.RandOD2_nud);
             this.SPSim_tp.Controls.Add(this.SPSim_progressBar);
+            this.SPSim_tp.Controls.Add(this.pictureBox1);
             this.SPSim_tp.Location = new System.Drawing.Point(4, 22);
             this.SPSim_tp.Name = "SPSim_tp";
             this.SPSim_tp.Padding = new System.Windows.Forms.Padding(3);
@@ -988,14 +932,6 @@
             this.SP_Sim_Plot_btn.Text = "Plot";
             this.SP_Sim_Plot_btn.UseVisualStyleBackColor = true;
             this.SP_Sim_Plot_btn.Click += new System.EventHandler(this.SP_Sim_Plot_btn_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(20, 120);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(719, 311);
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
             // 
             // Start2_btn
             // 
@@ -1092,7 +1028,8 @@
             this.destination_INSTR_tb.Name = "destination_INSTR_tb";
             this.destination_INSTR_tb.Size = new System.Drawing.Size(100, 20);
             this.destination_INSTR_tb.TabIndex = 3;
-            this.destination_INSTR_tb.Text = "2306";
+            this.destination_INSTR_tb.Text = "200";
+            this.destination_INSTR_tb.TextChanged += new System.EventHandler(this.destination_INSTR_tb_TextChanged);
             // 
             // origin_INSTR_tb
             // 
@@ -1100,7 +1037,8 @@
             this.origin_INSTR_tb.Name = "origin_INSTR_tb";
             this.origin_INSTR_tb.Size = new System.Drawing.Size(100, 20);
             this.origin_INSTR_tb.TabIndex = 2;
-            this.origin_INSTR_tb.Text = "2500";
+            this.origin_INSTR_tb.Text = "300";
+            this.origin_INSTR_tb.TextChanged += new System.EventHandler(this.origin_INSTR_tb_TextChanged);
             // 
             // label15
             // 
@@ -1120,6 +1058,72 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "origin";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(20, 120);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(719, 311);
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
+            // runToolStripMenuItem
+            // 
+            this.runToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("runToolStripMenuItem.Image")));
+            this.runToolStripMenuItem.Name = "runToolStripMenuItem";
+            this.runToolStripMenuItem.ShortcutKeyDisplayString = "";
+            this.runToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.runToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.runToolStripMenuItem.Text = "&Run";
+            this.runToolStripMenuItem.Click += new System.EventHandler(this.runToolStripMenuItem_Click);
+            // 
+            // settingToolStripMenuItem
+            // 
+            this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.testNetwrokToolStripMenuItem,
+            this.mesh533945ToolStripMenuItem,
+            this.uSNetworkToolStripMenuItem,
+            this.advancedToolStripMenuItem});
+            this.settingToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("settingToolStripMenuItem.Image")));
+            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.settingToolStripMenuItem.Text = "&Setting";
+            // 
+            // testNetwrokToolStripMenuItem
+            // 
+            this.testNetwrokToolStripMenuItem.Name = "testNetwrokToolStripMenuItem";
+            this.testNetwrokToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.testNetwrokToolStripMenuItem.Text = "&Test Netwrok";
+            this.testNetwrokToolStripMenuItem.Click += new System.EventHandler(this.testNetwrokToolStripMenuItem_Click);
+            // 
+            // mesh533945ToolStripMenuItem
+            // 
+            this.mesh533945ToolStripMenuItem.Name = "mesh533945ToolStripMenuItem";
+            this.mesh533945ToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.mesh533945ToolStripMenuItem.Text = "&Mesh 533935";
+            this.mesh533945ToolStripMenuItem.Click += new System.EventHandler(this.mesh533945ToolStripMenuItem_Click);
+            // 
+            // uSNetworkToolStripMenuItem
+            // 
+            this.uSNetworkToolStripMenuItem.Name = "uSNetworkToolStripMenuItem";
+            this.uSNetworkToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.uSNetworkToolStripMenuItem.Text = "&US. Network";
+            this.uSNetworkToolStripMenuItem.Click += new System.EventHandler(this.uSNetworkToolStripMenuItem_Click);
+            // 
+            // advancedToolStripMenuItem
+            // 
+            this.advancedToolStripMenuItem.Name = "advancedToolStripMenuItem";
+            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.advancedToolStripMenuItem.Text = "&Advanced";
+            this.advancedToolStripMenuItem.Click += new System.EventHandler(this.advancedToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("helpToolStripMenuItem.Image")));
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.helpToolStripMenuItem.Text = "&Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
+            // 
             // GeoHyperStar_MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1136,6 +1140,7 @@
             this.Name = "GeoHyperStar_MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GeoRouting(CopyRight By Jiangshan Ma)";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GeoHyperStar_MainForm_FormClosing);
             this.Load += new System.EventHandler(this.GeoHyperStar_MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Origin_nud)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Destination_nud)).EndInit();
@@ -1168,11 +1173,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.RandOD_nud)).EndInit();
             this.SPSim_tp.ResumeLayout(false);
             this.SPSim_tp.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RunTimes2_nud)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RandOD2_nud)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

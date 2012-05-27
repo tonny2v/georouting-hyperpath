@@ -30,9 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MapDisplay));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Layers_clb = new System.Windows.Forms.CheckedListBox();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.main_toolStrip = new System.Windows.Forms.ToolStrip();
             this.ReSet_btn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.RenderNode_btn = new System.Windows.Forms.ToolStripButton();
@@ -55,72 +54,69 @@
             this.RenderScannedLinks_btn = new System.Windows.Forms.ToolStripButton();
             this.SaveImage_btn = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.mapImage1 = new SharpMap.Forms.MapImage();
-            this.Animation_trackbar = new System.Windows.Forms.TrackBar();
-            this.Stop_btn = new System.Windows.Forms.Button();
-            this.Pause_btn = new System.Windows.Forms.Button();
-            this.Start_btn = new System.Windows.Forms.Button();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.HideRoutes_ckb = new System.Windows.Forms.CheckBox();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.treeView_contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showThisRouteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.MapInfomation_label = new System.Windows.Forms.Label();
+            this.mapImage1 = new SharpMap.Forms.MapImage();
+            this.Pause_btn = new System.Windows.Forms.Button();
+            this.Animation_trackbar = new System.Windows.Forms.TrackBar();
+            this.Start_btn = new System.Windows.Forms.Button();
+            this.Stop_btn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.mapContext = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mapContext_refresh = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomToExtentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.googleEarthItToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.main_statusStrip = new System.Windows.Forms.StatusStrip();
             this.CurrentDB_tsl = new System.Windows.Forms.ToolStripStatusLabel();
             this.SelectedLayer_tsl = new System.Windows.Forms.ToolStripStatusLabel();
             this.Status_tsl = new System.Windows.Forms.ToolStripStatusLabel();
             this.SelectedItem_tsl = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.animation_timer = new System.Windows.Forms.Timer(this.components);
+            this.setStyle_ColorDialog = new System.Windows.Forms.ColorDialog();
             this.setStyleContext = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SetColr = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomToLayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.main_toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
+            this.treeView_contextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mapImage1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Animation_trackbar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.mapContext.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
+            this.main_statusStrip.SuspendLayout();
             this.setStyleContext.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.groupBox1.Controls.Add(this.Layers_clb);
-            this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(186, 351);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Layers";
-            // 
             // Layers_clb
             // 
-            this.Layers_clb.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.Layers_clb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Layers_clb.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Layers_clb.FormattingEnabled = true;
-            this.Layers_clb.Location = new System.Drawing.Point(6, 27);
+            this.Layers_clb.Location = new System.Drawing.Point(15, 32);
             this.Layers_clb.Name = "Layers_clb";
-            this.Layers_clb.Size = new System.Drawing.Size(174, 284);
+            this.Layers_clb.Size = new System.Drawing.Size(211, 124);
             this.Layers_clb.TabIndex = 4;
             this.Layers_clb.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Layers_clb_MouseDown);
             // 
-            // toolStrip1
+            // main_toolStrip
             // 
-            this.toolStrip1.BackColor = System.Drawing.SystemColors.Control;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.main_toolStrip.BackColor = System.Drawing.SystemColors.Control;
+            this.main_toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ReSet_btn,
             this.toolStripSeparator2,
             this.RenderNode_btn,
@@ -139,11 +135,11 @@
             this.RenderScanned_btn,
             this.RenderScannedLinks_btn,
             this.SaveImage_btn});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1073, 25);
-            this.toolStrip1.TabIndex = 10;
-            this.toolStrip1.Text = "toolStrip1";
+            this.main_toolStrip.Location = new System.Drawing.Point(0, 0);
+            this.main_toolStrip.Name = "main_toolStrip";
+            this.main_toolStrip.Size = new System.Drawing.Size(1073, 25);
+            this.main_toolStrip.TabIndex = 10;
+            this.main_toolStrip.Text = "toolStrip1";
             // 
             // ReSet_btn
             // 
@@ -319,7 +315,7 @@
             // SaveImage_btn
             // 
             this.SaveImage_btn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.SaveImage_btn.Image = ((System.Drawing.Image)(resources.GetObject("SaveImage_btn.Image")));
+            this.SaveImage_btn.Image = global::MapDisplayModule.Properties.Resources.save;
             this.SaveImage_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.SaveImage_btn.Name = "SaveImage_btn";
             this.SaveImage_btn.Size = new System.Drawing.Size(23, 22);
@@ -337,13 +333,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.mapImage1);
-            this.splitContainer1.Panel1.Controls.Add(this.Animation_trackbar);
-            this.splitContainer1.Panel1.Controls.Add(this.Stop_btn);
-            this.splitContainer1.Panel1.Controls.Add(this.Pause_btn);
-            this.splitContainer1.Panel1.Controls.Add(this.Start_btn);
-            this.splitContainer1.Panel1.Controls.Add(this.MapInfomation_label);
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.splitContainer2);
             // 
             // splitContainer1.Panel2
             // 
@@ -351,6 +341,98 @@
             this.splitContainer1.Size = new System.Drawing.Size(1073, 410);
             this.splitContainer1.SplitterDistance = 357;
             this.splitContainer1.TabIndex = 11;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer2.Location = new System.Drawing.Point(12, 3);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.HideRoutes_ckb);
+            this.splitContainer2.Panel1.Controls.Add(this.treeView1);
+            this.splitContainer2.Panel1.Controls.Add(this.label2);
+            this.splitContainer2.Panel1.Controls.Add(this.label1);
+            this.splitContainer2.Panel1.Controls.Add(this.Layers_clb);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.MapInfomation_label);
+            this.splitContainer2.Panel2.Controls.Add(this.mapImage1);
+            this.splitContainer2.Panel2.Controls.Add(this.Pause_btn);
+            this.splitContainer2.Panel2.Controls.Add(this.Animation_trackbar);
+            this.splitContainer2.Panel2.Controls.Add(this.Start_btn);
+            this.splitContainer2.Panel2.Controls.Add(this.Stop_btn);
+            this.splitContainer2.Size = new System.Drawing.Size(1061, 351);
+            this.splitContainer2.SplitterDistance = 242;
+            this.splitContainer2.TabIndex = 12;
+            // 
+            // HideRoutes_ckb
+            // 
+            this.HideRoutes_ckb.AutoSize = true;
+            this.HideRoutes_ckb.Location = new System.Drawing.Point(139, 167);
+            this.HideRoutes_ckb.Name = "HideRoutes_ckb";
+            this.HideRoutes_ckb.Size = new System.Drawing.Size(85, 17);
+            this.HideRoutes_ckb.TabIndex = 8;
+            this.HideRoutes_ckb.Text = "Hide Routes";
+            this.HideRoutes_ckb.UseVisualStyleBackColor = true;
+            // 
+            // treeView1
+            // 
+            this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.treeView1.ContextMenuStrip = this.treeView_contextMenuStrip;
+            this.treeView1.Location = new System.Drawing.Point(15, 200);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(211, 139);
+            this.treeView1.TabIndex = 7;
+            // 
+            // treeView_contextMenuStrip
+            // 
+            this.treeView_contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showThisRouteToolStripMenuItem});
+            this.treeView_contextMenuStrip.Name = "treeView_contextMenuStrip";
+            this.treeView_contextMenuStrip.Size = new System.Drawing.Size(153, 48);
+            // 
+            // showThisRouteToolStripMenuItem
+            // 
+            this.showThisRouteToolStripMenuItem.Name = "showThisRouteToolStripMenuItem";
+            this.showThisRouteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.showThisRouteToolStripMenuItem.Text = "Show";
+            this.showThisRouteToolStripMenuItem.Click += new System.EventHandler(this.showThisRouteToolStripMenuItem_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Trebuchet MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(11, 163);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(121, 22);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Memory layers";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Trebuchet MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(11, 7);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 22);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "DB layers";
+            // 
+            // MapInfomation_label
+            // 
+            this.MapInfomation_label.AutoSize = true;
+            this.MapInfomation_label.Location = new System.Drawing.Point(19, 7);
+            this.MapInfomation_label.Name = "MapInfomation_label";
+            this.MapInfomation_label.Size = new System.Drawing.Size(65, 13);
+            this.MapInfomation_label.TabIndex = 7;
+            this.MapInfomation_label.Text = "Map Display";
             // 
             // mapImage1
             // 
@@ -362,11 +444,11 @@
             this.mapImage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mapImage1.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.mapImage1.FineZoomFactor = 10D;
-            this.mapImage1.Location = new System.Drawing.Point(195, 30);
+            this.mapImage1.Location = new System.Drawing.Point(22, 32);
             this.mapImage1.Name = "mapImage1";
             this.mapImage1.PanOnClick = false;
             this.mapImage1.QueryLayerIndex = 0;
-            this.mapImage1.Size = new System.Drawing.Size(847, 324);
+            this.mapImage1.Size = new System.Drawing.Size(781, 307);
             this.mapImage1.TabIndex = 0;
             this.mapImage1.TabStop = false;
             this.mapImage1.WheelZoomMagnitude = 2D;
@@ -375,51 +457,45 @@
             this.mapImage1.SizeChanged += new System.EventHandler(this.mapImage1_SizeChanged);
             this.mapImage1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mapImage1_MouseClick);
             // 
-            // Animation_trackbar
-            // 
-            this.Animation_trackbar.Location = new System.Drawing.Point(387, 8);
-            this.Animation_trackbar.Name = "Animation_trackbar";
-            this.Animation_trackbar.Size = new System.Drawing.Size(566, 45);
-            this.Animation_trackbar.TabIndex = 11;
-            // 
-            // Stop_btn
-            // 
-            this.Stop_btn.Image = ((System.Drawing.Image)(resources.GetObject("Stop_btn.Image")));
-            this.Stop_btn.Location = new System.Drawing.Point(344, 8);
-            this.Stop_btn.Name = "Stop_btn";
-            this.Stop_btn.Size = new System.Drawing.Size(20, 20);
-            this.Stop_btn.TabIndex = 10;
-            this.Stop_btn.UseVisualStyleBackColor = true;
-            this.Stop_btn.Click += new System.EventHandler(this.Stop_btn_Click);
-            // 
             // Pause_btn
             // 
             this.Pause_btn.Image = ((System.Drawing.Image)(resources.GetObject("Pause_btn.Image")));
-            this.Pause_btn.Location = new System.Drawing.Point(313, 8);
+            this.Pause_btn.Location = new System.Drawing.Point(184, 3);
             this.Pause_btn.Name = "Pause_btn";
             this.Pause_btn.Size = new System.Drawing.Size(20, 20);
             this.Pause_btn.TabIndex = 9;
             this.Pause_btn.UseVisualStyleBackColor = true;
             this.Pause_btn.Click += new System.EventHandler(this.Pause_btn_Click);
             // 
+            // Animation_trackbar
+            // 
+            this.Animation_trackbar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Animation_trackbar.Location = new System.Drawing.Point(236, 3);
+            this.Animation_trackbar.Name = "Animation_trackbar";
+            this.Animation_trackbar.Size = new System.Drawing.Size(559, 45);
+            this.Animation_trackbar.TabIndex = 11;
+            // 
             // Start_btn
             // 
             this.Start_btn.Image = ((System.Drawing.Image)(resources.GetObject("Start_btn.Image")));
-            this.Start_btn.Location = new System.Drawing.Point(282, 7);
+            this.Start_btn.Location = new System.Drawing.Point(158, 3);
             this.Start_btn.Name = "Start_btn";
             this.Start_btn.Size = new System.Drawing.Size(20, 20);
             this.Start_btn.TabIndex = 8;
             this.Start_btn.UseVisualStyleBackColor = true;
             this.Start_btn.Click += new System.EventHandler(this.Start_btn_Click);
             // 
-            // MapInfomation_label
+            // Stop_btn
             // 
-            this.MapInfomation_label.AutoSize = true;
-            this.MapInfomation_label.Location = new System.Drawing.Point(195, 11);
-            this.MapInfomation_label.Name = "MapInfomation_label";
-            this.MapInfomation_label.Size = new System.Drawing.Size(65, 13);
-            this.MapInfomation_label.TabIndex = 7;
-            this.MapInfomation_label.Text = "Map Display";
+            this.Stop_btn.Image = ((System.Drawing.Image)(resources.GetObject("Stop_btn.Image")));
+            this.Stop_btn.Location = new System.Drawing.Point(210, 3);
+            this.Stop_btn.Name = "Stop_btn";
+            this.Stop_btn.Size = new System.Drawing.Size(20, 20);
+            this.Stop_btn.TabIndex = 10;
+            this.Stop_btn.UseVisualStyleBackColor = true;
+            this.Stop_btn.Click += new System.EventHandler(this.Stop_btn_Click);
             // 
             // dataGridView1
             // 
@@ -430,7 +506,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1039, 43);
+            this.dataGridView1.Size = new System.Drawing.Size(1067, 43);
             this.dataGridView1.TabIndex = 0;
             // 
             // mapContext
@@ -440,41 +516,41 @@
             this.zoomToExtentToolStripMenuItem,
             this.googleEarthItToolStripMenuItem});
             this.mapContext.Name = "mapContext";
-            this.mapContext.Size = new System.Drawing.Size(151, 70);
+            this.mapContext.Size = new System.Drawing.Size(159, 70);
             // 
             // mapContext_refresh
             // 
             this.mapContext_refresh.Name = "mapContext_refresh";
-            this.mapContext_refresh.Size = new System.Drawing.Size(150, 22);
+            this.mapContext_refresh.Size = new System.Drawing.Size(158, 22);
             this.mapContext_refresh.Text = "&Refresh";
             this.mapContext_refresh.Click += new System.EventHandler(this.mapContext_refresh_Click);
             // 
             // zoomToExtentToolStripMenuItem
             // 
             this.zoomToExtentToolStripMenuItem.Name = "zoomToExtentToolStripMenuItem";
-            this.zoomToExtentToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.zoomToExtentToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.zoomToExtentToolStripMenuItem.Text = "&Zoom To Extent";
             this.zoomToExtentToolStripMenuItem.Click += new System.EventHandler(this.zoomToExtentToolStripMenuItem_Click);
             // 
             // googleEarthItToolStripMenuItem
             // 
             this.googleEarthItToolStripMenuItem.Name = "googleEarthItToolStripMenuItem";
-            this.googleEarthItToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.googleEarthItToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.googleEarthItToolStripMenuItem.Text = "&Google Earth it";
             this.googleEarthItToolStripMenuItem.Click += new System.EventHandler(this.googleEarthItToolStripMenuItem_Click);
             // 
-            // statusStrip1
+            // main_statusStrip
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.main_statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CurrentDB_tsl,
             this.SelectedLayer_tsl,
             this.Status_tsl,
             this.SelectedItem_tsl});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 440);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1073, 22);
-            this.statusStrip1.TabIndex = 12;
-            this.statusStrip1.Text = "statusStrip1";
+            this.main_statusStrip.Location = new System.Drawing.Point(0, 440);
+            this.main_statusStrip.Name = "main_statusStrip";
+            this.main_statusStrip.Size = new System.Drawing.Size(1073, 22);
+            this.main_statusStrip.TabIndex = 12;
+            this.main_statusStrip.Text = "statusStrip1";
             // 
             // CurrentDB_tsl
             // 
@@ -509,9 +585,9 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
-            // timer1
+            // animation_timer
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.animation_timer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // setStyleContext
             // 
@@ -519,19 +595,19 @@
             this.SetColr,
             this.zoomToLayerToolStripMenuItem});
             this.setStyleContext.Name = "setStyleContext";
-            this.setStyleContext.Size = new System.Drawing.Size(146, 48);
+            this.setStyleContext.Size = new System.Drawing.Size(155, 48);
             // 
             // SetColr
             // 
             this.SetColr.Name = "SetColr";
-            this.SetColr.Size = new System.Drawing.Size(145, 22);
+            this.SetColr.Size = new System.Drawing.Size(154, 22);
             this.SetColr.Text = "Set &Color";
             this.SetColr.Click += new System.EventHandler(this.SetColr_Click);
             // 
             // zoomToLayerToolStripMenuItem
             // 
             this.zoomToLayerToolStripMenuItem.Name = "zoomToLayerToolStripMenuItem";
-            this.zoomToLayerToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.zoomToLayerToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.zoomToLayerToolStripMenuItem.Text = "&Zoom To Layer";
             this.zoomToLayerToolStripMenuItem.Click += new System.EventHandler(this.zoomToLayerToolStripMenuItem_Click);
             // 
@@ -540,27 +616,32 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1073, 462);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.main_statusStrip);
             this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.main_toolStrip);
             this.Name = "MapDisplay";
             this.Text = "MapDisplay(CopyRight by J.S. Ma)";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.main_toolStrip.ResumeLayout(false);
+            this.main_toolStrip.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel1.PerformLayout();
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            this.splitContainer2.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
+            this.treeView_contextMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mapImage1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Animation_trackbar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.mapContext.ResumeLayout(false);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.main_statusStrip.ResumeLayout(false);
+            this.main_statusStrip.PerformLayout();
             this.setStyleContext.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -570,8 +651,7 @@
         #endregion
 
         private SharpMap.Forms.MapImage mapImage1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip main_toolStrip;
         private System.Windows.Forms.ToolStripButton ReSet_btn;
         private System.Windows.Forms.ToolStripButton RenderNode_btn;
         private System.Windows.Forms.ToolStripButton RenderLink_btn;
@@ -584,7 +664,7 @@
         private System.Windows.Forms.ToolStripButton Query_btn;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip main_statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel Status_tsl;
         private System.Windows.Forms.ToolStripStatusLabel SelectedItem_tsl;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
@@ -595,7 +675,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripTextBox NodeInput_tb;
         private System.Windows.Forms.ToolStripButton FindElement_btn;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer animation_timer;
         private System.Windows.Forms.Label MapInfomation_label;
         private System.Windows.Forms.Button Start_btn;
         private System.Windows.Forms.Button Stop_btn;
@@ -605,7 +685,7 @@
         private System.Windows.Forms.ToolStripMenuItem bufferToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox BufferDistanceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
-        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ColorDialog setStyle_ColorDialog;
         private System.Windows.Forms.ContextMenuStrip setStyleContext;
         private System.Windows.Forms.ToolStripMenuItem SetColr;
         private System.Windows.Forms.ContextMenuStrip mapContext;
@@ -616,6 +696,13 @@
         private System.Windows.Forms.ToolStripButton RenderScanned_btn;
         private System.Windows.Forms.ToolStripButton RenderScannedLinks_btn;
         private System.Windows.Forms.ToolStripButton SaveImage_btn;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox HideRoutes_ckb;
+        private System.Windows.Forms.ContextMenuStrip treeView_contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem showThisRouteToolStripMenuItem;
     }
 }
 
