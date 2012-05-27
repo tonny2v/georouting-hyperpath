@@ -24,7 +24,10 @@ namespace MapDisplayModule
 {
     public partial class MapDisplay : Form
     {
-        
+
+        VectorLayer Origin_lyr;
+        VectorLayer Destination_lyr;
+
         public MapDisplay()
         {
             InitializeComponent();
@@ -87,8 +90,10 @@ namespace MapDisplayModule
 
             AddODPointLayers(myMap);
 
-            AddRouteLayers(myMap);
-
+            if (!HideRoutes_ckb.Checked)
+            {
+                AddRouteLayers(myMap);
+            }
             return myMap;
         }
         #region Functions for adding layers to the map
@@ -217,7 +222,7 @@ namespace MapDisplayModule
             }
         }
 
-        private void AddODPointLayers(SharpMap.Map myMap)
+        public void AddODPointLayers(SharpMap.Map myMap)
         {
             //query WKT of origin and destination
             string O_wkt = "";
@@ -266,10 +271,14 @@ namespace MapDisplayModule
             ////SharpMap.Geometries.Point O2Draw = (O_fdr.Geometry as SharpMap.Geometries.Point);
             ////SharpMap.Geometries.Point D2Draw = (D_fdr.Geometry as SharpMap.Geometries.Point);
 
-            VectorLayer Origin_lyr = new VectorLayer("Origin");
-            VectorLayer Destination_lyr = new VectorLayer("Destination");
+            Origin_lyr = new VectorLayer(origin.ToString());
+            Destination_lyr = new VectorLayer(destination.ToString());
 
             Origin_lyr.DataSource = new SharpMap.Data.Providers.GeometryProvider(O_wkt);
+            TreeNode ONode=new TreeNode("Origin");
+            TreeNode DNode = new TreeNode("Destination");
+            TreeNode Nodes = new TreeNode("Nodes",new TreeNode[]{ONode,DNode});
+            treeView1.Nodes.Add(Nodes);
 
             Origin_lyr.Style.PointColor = new SolidBrush(Color.Red);
 
@@ -281,25 +290,36 @@ namespace MapDisplayModule
             myMap.Layers.Add(Destination_lyr);
         }
 
-        private void AddRouteLayers(SharpMap.Map myMap)
+        public void AddRouteLayers(SharpMap.Map myMap)
         {
-            int routeCnt = 0;
-            foreach (Route r in Routes)
+            if (Routes != null)
             {
-                routeCnt++;
-                SharpMap.Geometries.GeometryCollection routeGeo = new SharpMap.Geometries.GeometryCollection();
-                foreach (NetworkLib.Element.Link i in r.Links)
+                List<TreeNode> routeTreeNodes = new List<TreeNode>();
+                int routeCnt = 0;
+                foreach (Route r in Routes)
                 {
-                    SharpMap.Geometries.Geometry linkGeo = SharpMap.Converters.WellKnownText.GeometryFromWKT.Parse(i.WKT);
-                    routeGeo.Collection.Add(linkGeo);
+                    routeCnt++;
+                    SharpMap.Geometries.GeometryCollection routeGeo = new SharpMap.Geometries.GeometryCollection();
+                    foreach (NetworkLib.Element.Link i in r.Links)
+                    {
+                        SharpMap.Geometries.Geometry linkGeo = SharpMap.Converters.WellKnownText.GeometryFromWKT.Parse(i.WKT);
+                        routeGeo.Collection.Add(linkGeo);
+                    }
+                    VectorLayer route_lyr = new VectorLayer("Route" + routeCnt.ToString());
+                    route_lyr.DataSource = new SharpMap.Data.Providers.GeometryProvider(routeGeo);
+                    //Add route layers to myMap
+                    myMap.Layers.Add(route_lyr);
+                    
+                    TreeNode routeTreeNode = new TreeNode(route_lyr.LayerName);
+                    routeTreeNodes.Add(routeTreeNode);
                 }
-                VectorLayer route_lyr = new VectorLayer("Route" + routeCnt.ToString());
-                route_lyr.DataSource = new SharpMap.Data.Providers.GeometryProvider(routeGeo);
-                 //Add route layers to myMap
-                myMap.Layers.Add(route_lyr);
+                TreeNode node = new TreeNode("Routes",routeTreeNodes.ToArray());
+                treeView1.Nodes.Add(node);
             }
-
+            
         }
+
+
         #endregion
         
 
@@ -307,7 +327,8 @@ namespace MapDisplayModule
 
         private void Refresth_btn_Click(object sender, EventArgs e)
         {
-            timer1.Dispose();
+            treeView1.Nodes.Clear();
+            animation_timer.Dispose();
             if (ConnStr == string.Empty) MessageBox.Show("No Sql Connection!");
             List<string> lyrs = new List<string>();
             foreach (var i in Layers_clb.Items)
@@ -322,7 +343,11 @@ namespace MapDisplayModule
             Cursor = Cursors.Default;
             mapImage1.ActiveTool = MapImage.Tools.None;
             //mapImage1.ActiveTool = MapImage.Tools.Pan;
+            //SharpMap.Geometries.BoundingBox current=mapImage1.Map.GetExtents();
+            //SharpMap.Geometries.BoundingBox betterBoundingBox = new SharpMap.Geometries.BoundingBox
+            //    (current.Min.X*0.95,current.Min.Y*0.95, current.Max.X*1.05,current.Max.Y*1.05);
             mapImage1.Map.ZoomToExtents();
+            
             fullzoom = mapImage1.Map.Zoom;
             //mapImage1.Map.GetMap();
 
@@ -652,12 +677,12 @@ namespace MapDisplayModule
 
         private void StartAnimation()
         {           
-            timer1.Interval = 2;
-            timer1.Start();
+            animation_timer.Interval = 2;
+            animation_timer.Start();
         }
         private void PauseAnimation()
         {
-            timer1.Stop();
+            animation_timer.Stop();
         }
     
 
@@ -724,7 +749,7 @@ namespace MapDisplayModule
 
             else
             {
-                timer1.Stop();
+                animation_timer.Stop();
                 timecounter = 0;
                 Animation_trackbar.Value = 0;
                 mapImage1.Refresh();
@@ -744,8 +769,8 @@ namespace MapDisplayModule
         //停止动画
         private void Stop_btn_Click(object sender, EventArgs e)
         {
-            timer1.Stop();
-            timer1.Dispose();
+            animation_timer.Stop();
+            animation_timer.Dispose();
             //mapImage1.Map.Layers.Clear();
             
             mapImage1.Refresh();
@@ -972,8 +997,8 @@ namespace MapDisplayModule
         {
             string lyr_name = Layers_clb.SelectedItem.ToString();
             var selctedlyr = this.mapImage1.Map.GetLayerByName(lyr_name) as SharpMap.Layers.VectorLayer;
-            colorDialog1.ShowDialog(this);
-            selctedlyr.Style.Line.Color = colorDialog1.Color;
+            setStyle_ColorDialog.ShowDialog(this);
+            selctedlyr.Style.Line.Color = setStyle_ColorDialog.Color;
             mapImage1.Refresh();
         }
 
@@ -1109,9 +1134,25 @@ namespace MapDisplayModule
                 using (FileStream fs = new FileStream(sfd.FileName, FileMode.OpenOrCreate))
                 {
                     Metafile mf = mapImage1.Map.GetMapAsMetafile();
-                    mf.Save(fs,ImageFormat.Tiff);
+                    
+                    mf.Save(fs,ImageFormat.Png);
                 }
             }
+        }
+
+        private void showThisRouteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowRoute.O_lyr = Origin_lyr;
+            ShowRoute.D_lyr = Destination_lyr;
+            ShowRoute form = new ShowRoute();
+            List<VectorLayer> Routes_lyr=new List<VectorLayer>();
+            foreach (VectorLayer i in mapImage1.Map.Layers)
+            {
+                if(i.LayerName==treeView1.SelectedNode.Text)
+                    form.Route_lyr = i;
+            }
+            
+            form.Show();
         }
 
 
