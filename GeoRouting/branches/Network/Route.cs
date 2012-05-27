@@ -13,7 +13,6 @@ namespace NetworkLib
 
         public double Reliability { get; set; }
         
-        
         public Route() { }
        
         public Route(Link [] _links) 

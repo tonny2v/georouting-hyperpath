@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SharpMapUITest.Properties {
+namespace MapDisplayModule.Properties {
     using System;
     
     

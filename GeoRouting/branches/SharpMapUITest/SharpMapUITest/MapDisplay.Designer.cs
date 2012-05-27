@@ -1,4 +1,4 @@
-﻿namespace SharpMapUITest
+﻿namespace MapDisplayModule
 {
     partial class MapDisplay
     {
